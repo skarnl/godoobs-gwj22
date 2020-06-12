@@ -1,5 +1,6 @@
 extends Sprite
 
+
 onready var generator = RandomNumberGenerator.new()
 onready var screen_size = get_viewport_rect().size
 
