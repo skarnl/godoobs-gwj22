@@ -10,15 +10,16 @@ enum LookDirection {
 }
 
 onready var vision_cone = $LookRotation
-onready var player = $"../player"
+onready var player = get_parent().get_parent().get_node("player")
+var motion=Vector2()
 
-var MOVEMENT_SPEED = 10
+export var MOVEMENT_SPEED = 30
 
 var is_player_detected = false
-
 export(LookDirection) var look_direction = LookDirection.RIGHT
 
 func _ready():
+	set_physics_process(false)
 	match look_direction:
 		LookDirection.LEFT:
 			vision_cone.rotation_degrees = 180
@@ -33,18 +34,24 @@ func _ready():
 			vision_cone.rotation_degrees = 90
 
 
-func _on_VisionCone_body_entered(_body):
-	print("player detected!")
-	is_player_detected = true
-
-	# check if we have need to dispatch this outside the enemy
-	# should 'the world' know an enemy has detected the player?
-	emit_signal("player_detected")
+func _on_vision_cone_area_entered(area):
+	if area.name=="detection_area":
+		print("player detected!")
+		is_player_detected = true
+		
+		emit_signal("player_detected")
+		set_physics_process(true)
 
 func _physics_process(delta):
-	if not is_player_detected:
-		return
-	
-	var vector = player.position
+	motion=(player.get_global_position()-self.global_position)
+	motion/=motion.length()
+	motion*=MOVEMENT_SPEED
+	move_and_slide(motion)
 
-	move_and_slide(vector * MOVEMENT_SPEED * delta)
+
+func _on_vision_cone_area_exited(area):
+	if area.name=="detection_area":
+		print("player escaped")
+		is_player_detected=false
+		motion=0
+		set_physics_process(false)

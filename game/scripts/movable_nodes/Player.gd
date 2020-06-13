@@ -10,4 +10,5 @@ func _physics_process(delta):
 		motion=Vector2(inp_x,inp_y).normalized()*speed
 	else:
 		motion=Vector2.ZERO
+	print($detection_area.monitorable)
 	move_and_slide(motion)

@@ -26,10 +26,10 @@ texture = ExtResource( 3 )
 [node name="PivotPoint" type="Node2D" parent="LookRotation"]
 script = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="LookRotation/PivotPoint"]
+[node name="vision_cone" type="Area2D" parent="LookRotation/PivotPoint"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LookRotation/PivotPoint/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LookRotation/PivotPoint/vision_cone"]
 position = Vector2( 233, 1 )
 polygon = PoolVector2Array( 13, -94, -199, -20, -199, 17, 9, 117, 48, 45, 49, -35 )
 
@@ -37,4 +37,5 @@ polygon = PoolVector2Array( 13, -94, -199, -20, -199, 17, 9, 117, 48, 45, 49, -3
 self_modulate = Color( 0.337255, 1, 0, 1 )
 cast_to = Vector2( 50, 0 )
 collision_mask = 0
-[connection signal="body_entered" from="LookRotation/PivotPoint/Area2D" to="." method="_on_VisionCone_body_entered"]
+[connection signal="area_entered" from="LookRotation/PivotPoint/vision_cone" to="." method="_on_vision_cone_area_entered"]
+[connection signal="area_exited" from="LookRotation/PivotPoint/vision_cone" to="." method="_on_vision_cone_area_exited"]
