@@ -22,6 +22,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 interactions="*res://scenes/autoloads/interactions.tscn"
+SceneLoader="*res://scripts/autoloads/scene_loader.gd"
 
 [input]
 
