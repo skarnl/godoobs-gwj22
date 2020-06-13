@@ -19,10 +19,6 @@ config/name="Godoobs | GWJ22"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://assets/icon.png"
 
-[autoload]
-
-AudioManager="*res://assets/Sound/AudioManager.tscn"
-
 [rendering]
 
 environment/default_environment="res://default_env.tres"

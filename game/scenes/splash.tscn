@@ -1,0 +1,38 @@
+[gd_scene format=2]
+
+[node name="Splash" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 464.0
+margin_top = 200.0
+margin_right = 726.0
+margin_bottom = 244.0
+text = "Godoobs presents"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 408.0
+margin_top = 248.0
+margin_right = 699.0
+margin_bottom = 292.0
+text = "A Stealth Revolution Game with Cats and Rats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 256.0
+margin_top = 352.0
+margin_right = 833.0
+margin_bottom = 396.0
+text = "This is just some static scene with a timer ... here we could add the blinking logo and stuff"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
