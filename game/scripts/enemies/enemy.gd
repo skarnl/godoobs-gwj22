@@ -11,11 +11,10 @@ enum LookDirection {
 
 onready var vision_cone = $LookRotation
 onready var player = get_parent().get_parent().get_node("player")
-var motion=Vector2()
+var motion = Vector2()
 
-export var MOVEMENT_SPEED = 30
+export var MOVEMENT_SPEED = 50
 
-var is_player_detected = false
 export(LookDirection) var look_direction = LookDirection.RIGHT
 
 func _ready():
@@ -35,23 +34,19 @@ func _ready():
 
 
 func _on_vision_cone_area_entered(area):
-	if area.name=="detection_area":
-		print("player detected!")
-		is_player_detected = true
-		
+	if area.name == "detection_area":
 		emit_signal("player_detected")
 		set_physics_process(true)
 
 func _physics_process(delta):
-	motion=(player.get_global_position()-self.global_position)
-	motion/=motion.length()
-	motion*=MOVEMENT_SPEED
+	motion = (player.get_global_position() - self.global_position)
+	motion /= motion.length()
+	motion *= MOVEMENT_SPEED
 	move_and_slide(motion)
 
 
 func _on_vision_cone_area_exited(area):
-	if area.name=="detection_area":
+	if area.name == "detection_area":
 		print("player escaped")
-		is_player_detected=false
-		motion=0
+		motion = 0
 		set_physics_process(false)
