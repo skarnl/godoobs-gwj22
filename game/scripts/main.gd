@@ -6,36 +6,23 @@ enum State {
 	Death
 }
 
-onready var SplashScene = preload("res://scenes/splash.tscn")
-onready var GameScene = preload("res://scenes/movable_nodes/player.tscn")
 onready var current_root = $current_scene_root
-
-var state = State.Splash
-var splash
-var game
+var dialog_box=preload("res://scenes/GUI/dialogue_box.tscn")
 
 func _ready():
-	load_splash()
+	pass
 
 
-func load_splash():
-	splash = SplashScene.instance()
-	current_root.add_child(splash)
-	get_tree().set_current_scene(splash)
-	splash.get_node("Timer").connect("timeout", self, "_on_SplashScreen_timeout")
+
+func _on_Area2D_body_entered(body):
+	if body.name=="player":
+		var dbox=dialog_box.instance()
+		dbox.name="dia_box"
+		add_child(dbox)
+		dbox.read("dialogue_info",false)
 
 
-func _on_SplashScreen_timeout():
-	clear_splash()
-	load_game()
-	
-
-func clear_splash():
-	if splash:
-		splash.queue_free()
-		splash = null
-
-func load_game():
-	game = GameScene.instance()
-	current_root.add_child(game)
-	get_tree().set_current_scene(game)
+func _on_Area2D_body_exited(body):
+	if body.name=="player":
+		if has_node("dia_box"):
+			get_node("dia_box").destroy()

@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/GUI/dialogue_box.gd" type="Script" id=1]
+
+[node name="dialogue_box" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.192157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -167.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -487.0
+margin_top = -62.5
+margin_right = 479.0
+margin_bottom = 63.5
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer/ColorRect2"]
+
+[node name="player_choice" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = -27.0
+margin_right = 157.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_option" type="Button" parent="CanvasLayer/player_choice"]
+margin_right = 155.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_option" type="Button" parent="CanvasLayer/player_choice"]
+margin_left = 159.0
+margin_right = 315.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="CanvasLayer/player_choice/left_option" to="." method="_on_left_option_button_up"]
+[connection signal="button_up" from="CanvasLayer/player_choice/right_option" to="." method="_on_right_option_button_up"]
