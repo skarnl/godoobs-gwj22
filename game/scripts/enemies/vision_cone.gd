@@ -5,8 +5,8 @@ enum DIRECTION {
 	COUNTER_CLOCKWISE = -1
 }
 
-var MIN_ROTATION_THRESHOLD = -45
-var MAX_ROTATION_THRESHOLD = 45
+export var MIN_ROTATION_THRESHOLD = -45
+export var MAX_ROTATION_THRESHOLD = 45
 
 var scan_speed:float = 30
 var scan_direction = DIRECTION.CLOCKWISE
