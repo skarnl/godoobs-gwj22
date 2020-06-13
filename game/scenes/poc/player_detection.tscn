@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/movable_nodes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://scenes/poc/scripts/vision_cone.gd" type="Script" id=3]
+[ext_resource path="res://scenes/poc/scripts/enemy.gd" type="Script" id=4]
 
 [node name="player_detection" type="Node2D"]
 
@@ -12,16 +13,28 @@ position = Vector2( 102, 201 )
 [node name="enemy" type="Node2D" parent="."]
 self_modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
 position = Vector2( 655, 119 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+look_direction = 0
 
 [node name="Sprite" type="Sprite" parent="enemy"]
 self_modulate = Color( 1, 0.00999999, 0.00999999, 0.87451 )
 texture = ExtResource( 2 )
 
-[node name="PivotPoint" type="Node2D" parent="enemy"]
+[node name="LookRotation" type="Node2D" parent="enemy"]
+
+[node name="PivotPoint" type="Node2D" parent="enemy/LookRotation"]
 script = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="enemy/PivotPoint"]
+[node name="Area2D" type="Area2D" parent="enemy/LookRotation/PivotPoint"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy/PivotPoint/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy/LookRotation/PivotPoint/Area2D"]
 position = Vector2( 233, 1 )
 polygon = PoolVector2Array( 13, -94, -199, -20, -199, 17, 9, 117, 48, 45, 49, -35 )
+
+[node name="DebugLookDirection" type="RayCast2D" parent="enemy/LookRotation"]
+self_modulate = Color( 0.337255, 1, 0, 1 )
+cast_to = Vector2( 50, 0 )
+collision_mask = 0
