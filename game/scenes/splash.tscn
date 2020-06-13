@@ -1,4 +1,23 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/splash-spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/splash.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "splash_intro"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11 ]
+}
 
 [node name="Splash" type="Control"]
 __meta__ = {
@@ -7,48 +26,35 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -131.0
-margin_top = -111.0
-margin_right = 131.0
-margin_bottom = -67.0
-text = "Godoobs presents"
-align = 1
-valign = 1
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 496, 320 )
+texture = ExtResource( 1 )
+hframes = 12
+frame = 1
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite"]
+anims/splash_intro = SubResource( 1 )
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -145.5
-margin_top = -35.0
-margin_right = 145.5
-margin_bottom = 9.0
+margin_left = -152.0
+margin_top = 180.0
+margin_right = 139.0
+margin_bottom = 224.0
 text = "A Stealth Revolution Game with Cats and Rats"
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -288.5
-margin_top = 55.0
-margin_right = 288.5
-margin_bottom = 99.0
-text = "This is just some static scene with a timer ... here we could add the blinking logo and stuff"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godoobs | GWJ22"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/splash.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
