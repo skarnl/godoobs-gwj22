@@ -24,7 +24,8 @@ script = ExtResource( 2 )
 position = Vector2( 319, 163 )
 
 [node name="a_random_cat(or rat\?)" type="StaticBody2D" parent="."]
-position = Vector2( 682.1, 138.7 )
+position = Vector2( 682.1, 139.7 )
+collision_layer = 4
 
 [node name="Area2D" type="Area2D" parent="a_random_cat(or rat\?)"]
 
