@@ -7,6 +7,7 @@
 [node name="player_detection" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 102, 201 )
 
 [node name="enemy" type="Node2D" parent="."]
 self_modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
