@@ -7,8 +7,8 @@ enum State {
 }
 
 onready var SplashScene = preload("res://scenes/splash.tscn")
-onready var GameScene = preload("res://scenes/game.tscn")
-onready var current_root = $CurrentSceneRoot
+onready var GameScene = preload("res://scenes/movable_nodes/player.tscn")
+onready var current_root = $current_scene_root
 
 var state = State.Splash
 var splash

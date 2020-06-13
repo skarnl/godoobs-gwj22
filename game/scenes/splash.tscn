@@ -1,32 +1,52 @@
 [gd_scene format=2]
 
-[node name="Splash" type="Node2D"]
+[node name="Splash" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
-margin_left = 464.0
-margin_top = 200.0
-margin_right = 726.0
-margin_bottom = 244.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -131.0
+margin_top = -111.0
+margin_right = 131.0
+margin_bottom = -67.0
 text = "Godoobs presents"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 408.0
-margin_top = 248.0
-margin_right = 699.0
-margin_bottom = 292.0
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.5
+margin_top = -35.0
+margin_right = 145.5
+margin_bottom = 9.0
 text = "A Stealth Revolution Game with Cats and Rats"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="."]
-margin_left = 256.0
-margin_top = 352.0
-margin_right = 833.0
-margin_bottom = 396.0
+[node name="Label3" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.5
+margin_top = 55.0
+margin_right = 288.5
+margin_bottom = 99.0
 text = "This is just some static scene with a timer ... here we could add the blinking logo and stuff"
 align = 1
 __meta__ = {
