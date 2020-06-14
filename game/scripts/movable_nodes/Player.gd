@@ -5,6 +5,10 @@ signal area_lost
 var motion:Vector2
 export var speed = 500
 
+onready var animation_player = $AnimationPlayer
+onready var animation_tree:AnimationTree = $AnimationTree
+onready var animation_state:AnimationNodeStateMachine = animation_tree.get("parameters/playback")
+
 func _ready():
 	interactions.connect("progress_changed",self,"change_progress_bar")
 	interactions.progress=50
@@ -14,12 +18,23 @@ func _ready():
 
 
 func _physics_process(delta):
-	var inp_x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
-	var inp_y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
-	if inp_x != 0 or inp_y != 0:
-		motion = Vector2(inp_x,inp_y).normalized()*speed
+	var input_vector = Vector2.ZERO
+
+	input_vector.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+	
+	if input_vector != Vector2.ZERO:
+		animation_tree.set("parameters/Idle/blend_position", input_vector)
+		animation_tree.set("parameters/Walking/blend_position", input_vector)
+		animation_state.travel("Walking")
+		
+		motion = input_vector * speed
 	else:
+		animation_state.travel("Idle")
+
 		motion = Vector2.ZERO
+
 	move_and_slide(motion)
 
 func destroy():
