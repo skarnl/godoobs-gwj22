@@ -1,0 +1,32 @@
+[gd_scene format=2]
+
+[node name="player_UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="canvas_layer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -456.817
+margin_top = 11.6312
+margin_right = -397.817
+margin_bottom = 25.6312
+text = "progress:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progress_bar" type="ProgressBar" parent="canvas_layer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -387.0
+margin_right = 387.0
+margin_bottom = 33.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

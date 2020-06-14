@@ -1,6 +1,7 @@
 extends Control
 
 signal stop
+signal status
 
 onready var lab=$CanvasLayer/ColorRect2/Label
 var reading=false
@@ -8,6 +9,9 @@ var i:=0
 var dialogue_read:String
 var dict:Array
 var fin=false
+
+func _ready():
+	connect("status",get_parent(),"change_status")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and i<len(dict)+1:
@@ -27,12 +31,12 @@ func read(dialog,final:bool):
 	i=0
 	if !final:
 		dialogue_read=dialog
-		dict=interactions.dialogue_dict["%s"%dialogue_read]
+		dict=get_parent().dialogue_dict["%s"%dialogue_read]
 		read_dialog()
 	else:
 		fin=true
 		dialogue_read=dialog
-		dict=interactions.dialogue_dict["%s"%dialogue_read]
+		dict=get_parent().dialogue_dict["%s"%dialogue_read]
 		read_final_dialog()
 
 func read_dialog():
@@ -69,8 +73,10 @@ func destroy():
 
 
 func _on_left_option_button_up():
+	emit_signal("status",true)
 	read("%s_yes"%dialogue_read,true)
 
 
 func _on_right_option_button_up():
+	emit_signal("status",false)
 	read("%s_no"%dialogue_read,true)
