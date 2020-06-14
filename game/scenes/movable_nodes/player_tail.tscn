@@ -20,8 +20,7 @@ tracks/0/keys = {
 }
 
 [node name="Sprite (Tail)" type="Sprite"]
-position = Vector2( 0.00666428, 23.0185 )
-scale = Vector2( 0.077, 0.077 )
+position = Vector2( 0, 23.018 )
 texture = ExtResource( 1 )
 hframes = 7
 frame = 6
