@@ -11,7 +11,7 @@ enum LookDirection {
 
 onready var look_rotation = $LookRotation
 onready var sweep_animator = $LookRotation/AnimationPlayer
-onready var player = get_parent().get_parent().get_node("player")
+var player:Node2D
 var is_player_seen:=false
 var motion = Vector2()
 export var MOVEMENT_SPEED = 50
@@ -73,6 +73,9 @@ func start_looking():
 
 
 func focus_on_player():
+	if not player:
+		return
+		
 	look_rotation.get_node("PivotPoint").look_at(player.position)
 
 func destroy():
@@ -88,3 +91,7 @@ func _on_player_detector_area_entered(area):
 			print("player dies")
 		else:
 			destroy()
+
+
+func set_player_reference(player_reference:Node2D):
+	player = player_reference

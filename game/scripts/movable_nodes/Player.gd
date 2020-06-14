@@ -9,6 +9,10 @@ func _ready():
 	interactions.connect("progress_changed",self,"change_progress_bar")
 	interactions.progress=50
 
+	#register by all enemies
+	register_with_all_enemies()
+
+
 func _physics_process(delta):
 	var inp_x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
 	var inp_y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
@@ -29,3 +33,8 @@ func change_progress_bar(new_value:float):
 		print("area lost!!")
 		emit_signal("area_lost")
 	$player_UI/canvas_layer/progress_bar.value=new_value
+
+
+func register_with_all_enemies():
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.set_player_reference(self)

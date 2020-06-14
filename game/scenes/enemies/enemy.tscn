@@ -25,7 +25,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 39.0019, 36.9997 )
 
-[node name="enemy" type="KinematicBody2D"]
+[node name="enemy" type="KinematicBody2D" groups=[
+"enemies",
+]]
 self_modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
 position = Vector2( 655, 119 )
 collision_layer = 2
