@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="player_cover" type="Area2D"]
+input_pickable = false
+collision_layer = 8
+__meta__ = {
+"_editor_description_": "if player is in this area, he wont be detectable by the enemy."
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
