@@ -1,15 +1,16 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/images/player/player-walk.png" type="Texture" id=1]
 [ext_resource path="res://scripts/movable_nodes/Player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/GUI/player_UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/movable_nodes/player_tail.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=8]
 resource_name = "idle_down"
-length = 0.1
+length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,10 +24,10 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "idle_left"
-length = 0.1
+length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -40,10 +41,10 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "idle_right"
-length = 0.1
+length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -57,10 +58,10 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=11]
 resource_name = "idle_up"
-length = 0.1
+length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -77,7 +78,7 @@ resource_name = "walk_down"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -94,7 +95,7 @@ resource_name = "walk_left"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -111,7 +112,7 @@ resource_name = "walk_right"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -128,7 +129,7 @@ resource_name = "walk_up"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite (Body):frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -217,14 +218,17 @@ radius = 21.0656
 collision_mask = 15
 script = ExtResource( 2 )
 
+[node name="TailAnimation" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 0 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 __meta__ = {
 "_editor_description_": "This needs to be a child of player, since we want to follow the player"
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.07, 0.07 )
+[node name="Sprite (Body)" type="Sprite" parent="."]
+scale = Vector2( 0.077, 0.077 )
 texture = ExtResource( 1 )
 hframes = 24
 frame = 6
