@@ -64,23 +64,47 @@ func register_with_all_enemies():
 func set_tail_position():
 	var position = Vector2.ZERO
 	var rotation = 0
+
+	print('tail_direction.x', tail_direction.x)
+	print('tail_direction.y', tail_direction.y)
 	
-	#left
-	if tail_direction.x < 0:
-		position = Vector2(23,0)
+	
+	#left down
+	if tail_direction.x < 0 and tail_direction.y > 0:
+		position = Vector2(14, -14)
+		rotation = -135
+
+	#left up
+	elif tail_direction.x < 0 and tail_direction.y < 0:
+		position = Vector2(14, 14)
+		rotation = -45
+
+	#right down
+	elif tail_direction.x > 0 and tail_direction.y > 0:
+		position = Vector2(-14, -14)
+		rotation = 135
+
+	#right up
+	elif tail_direction.x > 0 and tail_direction.y < 0:
+		position = Vector2(-14, 14)
+		rotation = 45
+
+	#pure left
+	elif tail_direction.x < 0:
+		position = Vector2(23, 0)
 		rotation = -90
 	
-	#right
+	#pure right
 	elif tail_direction.x > 0:
-		position = Vector2(-23,0)
+		position = Vector2(-23, 0)
 		rotation = 90
 	
-	#bottom
+	#pure bottom
 	elif tail_direction.y < 0:
 		position = Vector2(0, 23)
 		rotation = 0
 
-	#top
+	#pure top
 	elif  tail_direction.y > 0:
 		position = Vector2(0, -23)
 		rotation = -180
