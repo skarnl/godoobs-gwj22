@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
-[ext_resource path="res://assets/Sound/AudioManager.gd" type="Script" id=2]
+[ext_resource path="res://scripts/sound/AudioManager.gd" type="Script" id=2]
 [ext_resource path="res://scenes/movable_nodes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/icon.png" type="Texture" id=4]
 [ext_resource path="res://scenes/enemies/enemy.tscn" type="PackedScene" id=5]
