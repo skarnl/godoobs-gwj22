@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/movable_nodes/player_cover.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="player_cover" type="Area2D"]
 input_pickable = false
 collision_layer = 8
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "if player is in this area, he wont be detectable by the enemy."
 }
@@ -12,3 +15,4 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 disabled = true
+[connection signal="area_entered" from="." to="." method="_on_player_cover_area_entered"]

@@ -44,6 +44,13 @@ func _physics_process(delta):
 	set_tail_position()
 
 func destroy():
+	$player_UI/canvas_layer/popup_message.visible = true
+	$player_UI/canvas_layer/popup_message.text = "Area Lost"
+	$TailAnimation.visible = false
+	$"Sprite (Body)".visible = false
+	$detection_area.monitoring = false
+	yield(get_tree().create_timer(1),"timeout")
+	$player_UI/canvas_layer/popup_message.visible = false
 	queue_free()
 
 func change_progress_bar(new_value:float):
@@ -65,8 +72,6 @@ func set_tail_position():
 	var position = Vector2.ZERO
 	var rotation = 0
 
-	print('tail_direction.x', tail_direction.x)
-	print('tail_direction.y', tail_direction.y)
 	
 	
 	#left down
