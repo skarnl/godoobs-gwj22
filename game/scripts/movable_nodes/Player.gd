@@ -13,9 +13,6 @@ onready var tail = $TailAnimation
 var tail_direction = Vector2.LEFT
 
 func _ready():
-	interactions.connect("progress_changed",self,"change_progress_bar")
-	interactions.progress=50
-
 	#register by all enemies
 	register_with_all_enemies()
 
@@ -53,15 +50,6 @@ func destroy():
 	$player_UI/canvas_layer/popup_message.visible = false
 	emit_signal("area_lost")
 	queue_free()
-
-func change_progress_bar(new_value:float):
-	if new_value==100:
-		print("area liberated!!")
-		emit_signal("area_liberated")
-	elif new_value==0:
-		print("area lost!!")
-		emit_signal("area_lost")
-	$player_UI/canvas_layer/progress_bar.value=new_value
 
 
 func register_with_all_enemies():
