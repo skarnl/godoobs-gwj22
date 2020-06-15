@@ -16,14 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Godoobs | GWJ22"
-run/main_scene="res://scenes/splash.tscn"
+run/main_scene="res://splash/splash.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
 
-interactions="*res://scenes/autoloads/interactions.tscn"
-SceneLoader="*res://scripts/autoloads/scene_loader.gd"
-politics="*res://scenes/autoloads/political_situation.tscn"
+interactions="*res://global/interactions.tscn"
+SceneLoader="*res://global/scene_loader.gd"
+politics="*res://global/political_situation.tscn"
 
 [display]
 

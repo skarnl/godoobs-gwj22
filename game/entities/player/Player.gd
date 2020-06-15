@@ -41,13 +41,14 @@ func _physics_process(delta):
 	set_tail_position()
 
 func destroy():
-	$player_UI/canvas_layer/popup_message.visible = true
-	$player_UI/canvas_layer/popup_message.text = "Area Lost"
+	# TODO this needs to be fixed with the proper callback
+	# $player_UI/canvas_layer/popup_message.visible = true
+	# $player_UI/canvas_layer/popup_message.text = "Area Lost"
 	$TailAnimation.visible = false
 	$"Sprite (Body)".visible = false
 	$detection_area.monitoring = false
 	yield(get_tree().create_timer(1),"timeout")
-	$player_UI/canvas_layer/popup_message.visible = false
+	# $player_UI/canvas_layer/popup_message.visible = false
 	emit_signal("area_lost")
 	queue_free()
 
