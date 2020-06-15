@@ -1,12 +1,6 @@
 extends Control
 
-var dest1 = preload("res://scenes/main.tscn")
-var dest2 = preload("res://scenes/main.tscn")
-var dest3 = preload("res://scenes/main.tscn")
-var dest4 = preload("res://scenes/main.tscn")
-
 func _ready():
-	
 	if politics.area1["control"]<10:
 		$CanvasLayer/base_1.disabled = true
 	elif politics.area2["control"]<10:
@@ -17,16 +11,16 @@ func _ready():
 
 
 func _on_home_base_button_up():
-	get_tree().change_scene_to(dest1)
+	SceneLoader.goto_scene("res://levels/level1.tscn")
 
 
 func _on_base_1_button_up():
-	get_tree().change_scene_to(dest2)
+	SceneLoader.goto_scene("res://levels/level1.tscn")
 
 
 func _on_base_2_button_up():
-	get_tree().change_scene_to(dest3)
+	SceneLoader.goto_scene("res://levels/level1.tscn")
 
 
 func _on_main_enemy_base_button_up():
-	get_tree().change_scene_to(dest4)
+	SceneLoader.goto_scene("res://levels/level1.tscn")
