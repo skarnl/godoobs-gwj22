@@ -20,9 +20,11 @@ tracks/0/keys = {
 }
 
 [node name="Splash" type="Control"]
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+skip_splash = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -35,11 +37,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 496, 320 )
+position = Vector2( 232, 136 )
+scale = Vector2( 0.317308, 0.317308 )
 texture = ExtResource( 1 )
 hframes = 12
-frame = 1
-script = ExtResource( 2 )
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite"]
 anims/splash_intro = SubResource( 1 )
@@ -50,9 +52,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -152.0
-margin_top = 180.0
+margin_top = 57.0
 margin_right = 139.0
-margin_bottom = 224.0
+margin_bottom = 101.0
 text = "A Stealth Revolution Game with Cats and Rats"
 valign = 1
 __meta__ = {

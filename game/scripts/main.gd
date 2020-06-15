@@ -1,10 +1,5 @@
 extends Node2D
 
-enum State {
-	Splash,
-	Game,
-	Death
-}
 var map:PackedScene
 onready var current_root = $current_scene_root
 
