@@ -51,6 +51,7 @@ func destroy():
 	$detection_area.monitoring = false
 	yield(get_tree().create_timer(1),"timeout")
 	$player_UI/canvas_layer/popup_message.visible = false
+	emit_signal("area_lost")
 	queue_free()
 
 func change_progress_bar(new_value:float):

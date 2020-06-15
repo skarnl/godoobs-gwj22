@@ -77,3 +77,4 @@ position = Vector2( 0, 1.36035 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="detection_tiles/player_cover"]
 polygon = PoolVector2Array( 2.28641, -3.05103, -0.434326, 381.936, 183.217, 380.575, 192.739, 316.637, 308.371, 315.277, 320.615, 256.781, 381.831, 252.7, 387.273, 186.041, 447.13, 187.402, 451.211, 128.906, 506.986, 126.185, 512.428, 63.6074, 573.645, 63.6074, 579.086, 6.47162 )
+[connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]

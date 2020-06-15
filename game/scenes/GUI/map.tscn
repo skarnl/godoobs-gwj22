@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/GUI/map.gd" type="Script" id=1]
+
+[node name="map" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="home_base" type="Button" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 34.0
+margin_top = -51.0
+margin_right = 117.0
+margin_bottom = -31.0
+text = "home base"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="base_1" type="Button" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 51.0
+margin_top = -200.0
+margin_right = 105.0
+margin_bottom = -180.0
+text = "base 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="base_2" type="Button" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 293.0
+margin_top = -99.0
+margin_right = 347.0
+margin_bottom = -79.0
+text = "base 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_enemy_base" type="Button" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 208.0
+margin_top = -216.0
+margin_right = 334.0
+margin_bottom = -196.0
+text = "main enemy base"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="CanvasLayer/home_base" to="." method="_on_home_base_button_up"]
+[connection signal="button_up" from="CanvasLayer/base_1" to="." method="_on_base_1_button_up"]
+[connection signal="button_up" from="CanvasLayer/base_2" to="." method="_on_base_2_button_up"]
+[connection signal="button_up" from="CanvasLayer/main_enemy_base" to="." method="_on_main_enemy_base_button_up"]
