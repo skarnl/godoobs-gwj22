@@ -1,8 +1,8 @@
 extends Control
 
+signal area_liberated
 
 onready var progress_bar = $canvas_layer/progress_bar
-
 
 func _ready():
 	interactions.connect("progress_changed",self,"change_progress_bar")

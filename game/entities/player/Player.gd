@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-signal area_liberated
 signal area_lost
 var motion:Vector2
 export var speed = 500
