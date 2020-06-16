@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Item
 
 enum ItemType {
 	BREAD,	
@@ -19,7 +19,7 @@ onready var animation_player = $AnimationPlayer
 onready var hit_detection = $Area2D
 
 func _ready():
-	assert(item_type)
+	assert(item_type != null)
 
 	#TODO register with some global thing (Inventory?) so it can connect
 
