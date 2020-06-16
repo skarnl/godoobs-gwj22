@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal area_lost
 var motion:Vector2
-export var speed = 500
+export var speed = 12000
 
 onready var animation_player = $AnimationPlayer
 onready var animation_tree:AnimationTree = $AnimationTree
@@ -30,7 +30,7 @@ func _physics_process(delta):
 
 		animation_state.travel("Walking")
 		
-		motion = input_vector * speed
+		motion = input_vector * speed * delta
 	else:
 		animation_state.travel("Idle")
 
