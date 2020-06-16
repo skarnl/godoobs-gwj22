@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://entities/items/item.gd"
+}, {
+"base": "Object",
+"class": "ItemTypes",
+"language": "GDScript",
+"path": "res://global/ItemTypes.gd"
+} ]
 _global_script_class_icons={
-
+"Item": "",
+"ItemTypes": ""
 }
 
 [application]
@@ -24,6 +35,7 @@ config/icon="res://assets/icon.png"
 interactions="*res://global/interactions.tscn"
 SceneLoader="*res://global/scene_loader.gd"
 politics="*res://global/political_situation.tscn"
+Inventory="*res://global/inventory.gd"
 
 [display]
 

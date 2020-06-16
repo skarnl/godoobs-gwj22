@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/level1.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sound/AudioManager.gd" type="Script" id=3]
-[ext_resource path="res://entities/items/Item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/items/VodkaItem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/villagers/villager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://zzzz_deprecated/player_cover.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/icon.png" type="Texture" id=7]
 [ext_resource path="res://gui/player_UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/items/CheeseItem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/items/BreadItem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "icon.png 0"
@@ -60,38 +63,16 @@ visible = false
 [node name="ColorRect" parent="GUI/pause_menu/CanvasLayer" index="2"]
 visible = false
 
+[node name="inventory" parent="GUI" instance=ExtResource( 12 )]
+
 [node name="audio_manage" type="Node" parent="."]
 pause_mode = 2
 script = ExtResource( 3 )
-
-[node name="Cheese" parent="." instance=ExtResource( 4 )]
-position = Vector2( 116.76, 129.395 )
-item_type = 2
-
-[node name="Cheese2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 265.76, 67.9651 )
-item_type = 0
-
-[node name="Cheese3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 260.096, 204.766 )
-item_type = 4
-
-[node name="Cheese6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 339.825, 144.644 )
-item_type = 5
-
-[node name="Cheese4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 161.634, 196.924 )
-
-[node name="Cheese5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 162.941, 64.0441 )
-item_type = 1
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 240.81, 134.992 )
 
 [node name="villagers" type="Node2D" parent="."]
-visible = false
 
 [node name="villager" parent="villagers" instance=ExtResource( 5 )]
 position = Vector2( 676.843, 127.544 )
@@ -114,6 +95,15 @@ position = Vector2( 0, 1.36035 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="detection_tiles/player_cover"]
 polygon = PoolVector2Array( 2.28641, -3.05103, -0.434326, 381.936, 183.217, 380.575, 192.739, 316.637, 308.371, 315.277, 320.615, 256.781, 381.831, 252.7, 387.273, 186.041, 447.13, 187.402, 451.211, 128.906, 506.986, 126.185, 512.428, 63.6074, 573.645, 63.6074, 579.086, 6.47162 )
+
+[node name="Bread" parent="." instance=ExtResource( 11 )]
+position = Vector2( 175.196, 137.687 )
+
+[node name="Cheese" parent="." instance=ExtResource( 10 )]
+position = Vector2( 224.427, 189.532 )
+
+[node name="Vodka" parent="." instance=ExtResource( 4 )]
+position = Vector2( 153.412, 94.5555 )
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
 
 [editable path="GUI/pause_menu"]
