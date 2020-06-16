@@ -1,8 +1,6 @@
 extends Node2D
 
 
-onready var current_root = $current_scene_root
-
 func _ready():
 	interactions.progress = politics.area0["control"]
 
