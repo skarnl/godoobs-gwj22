@@ -1,7 +1,8 @@
 extends Node
 
-var dic : Dictionary = {}
 
+
+var dic : Dictionary = {}
 func play_foley(audio_clip : AudioStream, priority : int = 0):
 	for child in $Foley.get_children():
 		if child.playing == false:

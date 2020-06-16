@@ -3,7 +3,6 @@
 [ext_resource path="res://zzzz_deprecated/player_cover.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "icon.png 0"
 0/texture = ExtResource( 2 )

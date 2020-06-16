@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/level1.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://zzzz_deprecated/player_cover.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/icon.png" type="Texture" id=7]
 [ext_resource path="res://gui/player_UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "icon.png 0"
@@ -46,7 +47,19 @@ script = ExtResource( 1 )
 
 [node name="progress_bar" parent="GUI" instance=ExtResource( 8 )]
 
+[node name="pause_menu" parent="GUI" instance=ExtResource( 9 )]
+
+[node name="Button" parent="GUI/pause_menu/CanvasLayer" index="0"]
+visible = false
+
+[node name="Button2" parent="GUI/pause_menu/CanvasLayer" index="1"]
+visible = false
+
+[node name="ColorRect" parent="GUI/pause_menu/CanvasLayer" index="2"]
+visible = false
+
 [node name="audio_manage" type="Node" parent="."]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
@@ -83,3 +96,5 @@ position = Vector2( 0, 1.36035 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="detection_tiles/player_cover"]
 polygon = PoolVector2Array( 2.28641, -3.05103, -0.434326, 381.936, 183.217, 380.575, 192.739, 316.637, 308.371, 315.277, 320.615, 256.781, 381.831, 252.7, 387.273, 186.041, 447.13, 187.402, 451.211, 128.906, 506.986, 126.185, 512.428, 63.6074, 573.645, 63.6074, 579.086, 6.47162 )
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
+
+[editable path="GUI/pause_menu"]

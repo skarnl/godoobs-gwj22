@@ -2,7 +2,6 @@
 
 [ext_resource path="res://menu/map.gd" type="Script" id=1]
 
-
 [node name="map" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,6 +25,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="progress" type="Label" parent="CanvasLayer/home_base"]
+margin_left = 19.0
+margin_top = 25.0
+margin_right = 59.0
+margin_bottom = 39.0
+
 [node name="base_1" type="Button" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -34,6 +39,15 @@ margin_top = -200.0
 margin_right = 105.0
 margin_bottom = -180.0
 text = "base 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progress" type="Label" parent="CanvasLayer/base_1"]
+margin_left = 9.0
+margin_top = 23.0
+margin_right = 49.0
+margin_bottom = 37.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,6 +64,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="progress" type="Label" parent="CanvasLayer/base_2"]
+margin_left = 9.0
+margin_top = 23.0
+margin_right = 49.0
+margin_bottom = 37.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="main_enemy_base" type="Button" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -58,6 +81,15 @@ margin_top = -216.0
 margin_right = 334.0
 margin_bottom = -196.0
 text = "main enemy base"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progress" type="Label" parent="CanvasLayer/main_enemy_base"]
+margin_left = 41.0
+margin_top = 24.0
+margin_right = 81.0
+margin_bottom = 38.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
