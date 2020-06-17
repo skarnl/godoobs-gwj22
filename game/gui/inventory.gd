@@ -17,7 +17,7 @@ func _on_Inventory_items_changed():
 	yield(get_tree(),"idle_frame")
 	
 	for item_index in inventory_items.size():
-		if inventory_items[item_index].picked_up:
+		if inventory_items[item_index].picked_up and not inventory_items[item_index].delivered:
 			_spawn_new_inventory_node(item_index)
 	
 
