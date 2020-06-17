@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/level1.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://entities/items/CheeseItem.tscn" type="PackedScene" id=10]
 [ext_resource path="res://entities/items/BreadItem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "icon.png 0"
@@ -65,6 +66,8 @@ visible = false
 
 [node name="inventory" parent="GUI" instance=ExtResource( 12 )]
 
+[node name="dialogue_panel" parent="GUI" instance=ExtResource( 13 )]
+
 [node name="audio_manage" type="Node" parent="."]
 pause_mode = 2
 script = ExtResource( 3 )
@@ -75,7 +78,8 @@ position = Vector2( 240.81, 134.992 )
 [node name="villagers" type="Node2D" parent="."]
 
 [node name="villager" parent="villagers" instance=ExtResource( 5 )]
-position = Vector2( 676.843, 127.544 )
+position = Vector2( 316.609, 137.166 )
+quest_id = "quest1"
 
 [node name="detection_tiles" type="TileMap" parent="."]
 visible = false
@@ -97,13 +101,13 @@ position = Vector2( 0, 1.36035 )
 polygon = PoolVector2Array( 2.28641, -3.05103, -0.434326, 381.936, 183.217, 380.575, 192.739, 316.637, 308.371, 315.277, 320.615, 256.781, 381.831, 252.7, 387.273, 186.041, 447.13, 187.402, 451.211, 128.906, 506.986, 126.185, 512.428, 63.6074, 573.645, 63.6074, 579.086, 6.47162 )
 
 [node name="Bread" parent="." instance=ExtResource( 11 )]
-position = Vector2( 175.196, 137.687 )
+position = Vector2( 72.9594, 166.554 )
 
 [node name="Cheese" parent="." instance=ExtResource( 10 )]
-position = Vector2( 224.427, 189.532 )
+position = Vector2( 68.6665, 237.643 )
 
 [node name="Vodka" parent="." instance=ExtResource( 4 )]
-position = Vector2( 153.412, 94.5555 )
+position = Vector2( 72.8255, 96.961 )
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
 
 [editable path="GUI/pause_menu"]
