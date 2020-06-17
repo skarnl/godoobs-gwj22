@@ -36,6 +36,7 @@ interactions="*res://global/interactions.tscn"
 SceneLoader="*res://global/scene_loader.gd"
 politics="*res://global/political_situation.tscn"
 Inventory="*res://global/inventory.gd"
+Game="*res://global/game.gd"
 
 [display]
 
