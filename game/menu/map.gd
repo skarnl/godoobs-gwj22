@@ -20,7 +20,7 @@ func _on_home_base_button_up():
 
 
 func _on_base_1_button_up():
-	SceneLoader.goto_scene("res://levels/level1.tscn")
+	SceneLoader.goto_scene("res://levels/level2.tscn")
 
 
 func _on_base_2_button_up():
