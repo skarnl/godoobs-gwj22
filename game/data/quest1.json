@@ -18,10 +18,7 @@
             },
             {
                 "label": "ask_question",
-                "text": "\"Oh, I'm sorry! Didn't notice you there! 
-                Oh, it's my little dear rat pups. I had so many of em. 
-                Nothing I could do about it. But the cats don't care. 
-                They only give us the leftover crumbs. How can a mother choose which of her pups to feed?\"",
+                "text": "\"Oh, I'm sorry! Didn't notice you there!\nOh, it's my little dear rat pups. I had so many of em.\nNothing I could do about it. But the cats don't care.\nThey only give us the leftover crumbs. How can a mother choose which of her pups to feed?\"",
                 "responses": [
                     {
                         "text": "\"I will happily help out a struggling com-rat\"",
@@ -43,9 +40,7 @@
             },
             {
                 "label": "accepted",
-                "text": "\"Thank you! You will save 78 future com-rats! 
-                We will all happily join you in building the rat-topia!
-                There is a loaf of bread guarded by the cats somewhere near here...\"",
+                "text": "\"Thank you! You will save 78 future com-rats!\nWe will all happily join you in building the rat-topia!\nThere is a loaf of bread guarded by the cats somewhere near here...\"",
                 "next_state": "active"
             }
         ],
@@ -53,8 +48,7 @@
             {
                 "entry": true,
                 "label": "just_checking",
-                "text": "\"Have you found the bread yet? 
-                The pups... they cry for it all the time...\"",
+                "text": "\"Have you found the bread yet?\nThe pups... they cry for it all the time...\"",
                 "responses": [
                     {
                         "conditional_item": "BREAD",
@@ -68,9 +62,7 @@
             },
             {
                 "label": "quest_finished",
-                "text": "\"Thank you! Thank you! 
-                We can clean and cook and garden and...
-                We'll better make our way to the resistance.\"",
+                "text": "\"Thank you! Thank you!\nWe can clean and cook and garden and...\nWe'll better make our way to the resistance.\"",
                 "next_state": "done"
             }
         ],
