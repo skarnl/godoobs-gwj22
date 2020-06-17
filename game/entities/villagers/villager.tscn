@@ -4,10 +4,10 @@
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50.2499, 48.05 )
+extents = Vector2( 55.6446, 52.2227 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 35.0499, 32.85 )
+extents = Vector2( 17.8483, 17.2261 )
 
 [node name="villager" type="StaticBody2D"]
 collision_layer = 4
@@ -24,6 +24,7 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0.345098, 0.654902, 0.321569, 1 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

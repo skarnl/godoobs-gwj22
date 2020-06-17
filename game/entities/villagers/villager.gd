@@ -8,16 +8,22 @@ var dialogue_dict={
 	"dialogue_info_no":["this is a negative response. I am against the revolution"]
 }
 
+export var quest_id:String
+
 var dialogued=false
 export var villager_value=20 #how much percentage does this villager contribute to the revolution
 var ally:bool
 
 func _on_Area2D_body_entered(body):
-	if !dialogued:
-		var dbox=dialog_box.instance()
-		dbox.name="dia_box"
-		add_child(dbox)
-		dbox.read("dialogue_info",false)
+	#trigger dialogbox with quest_id
+	print("trigger dialog panel")
+	interactions.start_dialog(quest_id)
+	
+#	if !dialogued:
+#		var dbox=dialog_box.instance()
+#		dbox.name="dia_box"
+#		add_child(dbox)
+#		dbox.read("dialogue_info",false)
 
 
 func _on_Area2D_body_exited(body):
