@@ -50,9 +50,13 @@ func _render_dialog() -> void:
 				var button = $responses.get_node("response" + str(index + 1)) as Button
 				button.text = response.text
 				button.show()
+				
+				if index == 0:
+					button.grab_focus()
 	else:
 		response1.text = 'Continue'
 		response1.show()
+		response1.grab_focus()
 
 
 func find_dialog_by_label(label: String):
