@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://tilesets/floor.tres" type="TileSet" id=4]
 [ext_resource path="res://entities/villagers/villager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tilesets/props.tres" type="TileSet" id=6]
+[ext_resource path="res://entities/enemies/enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/items/BreadItem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
@@ -149,6 +151,13 @@ shape = SubResource( 6 )
 
 [node name="enemies" type="Node2D" parent="."]
 
+[node name="cat" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 690.555, 726.508 )
+
+[node name="cat2" parent="enemies" instance=ExtResource( 7 )]
+position = Vector2( 88.532, 514.2 )
+look_direction = 3
+
 [node name="npcs" type="Node2D" parent="."]
 
 [node name="villager" parent="npcs" instance=ExtResource( 5 )]
@@ -156,6 +165,9 @@ position = Vector2( 388.721, 305.806 )
 quest_id = "quest1"
 
 [node name="items" type="Node2D" parent="."]
+
+[node name="Bread" parent="items" instance=ExtResource( 8 )]
+position = Vector2( 729.333, 391.081 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 76.7125, -728.965 )
