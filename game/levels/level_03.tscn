@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -9,46 +9,65 @@
 [ext_resource path="res://entities/enemies/enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/items/BreadItem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://gui/__debug.gd" type="Script" id=11]
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.3484, 626.97 )
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 432.067, 45.9583 )
+extents = Vector2( 45.3484, 626.97 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 81.8168, 474.704 )
+extents = Vector2( 432.067, 45.9583 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 86.3958, 457.429 )
+extents = Vector2( 81.8168, 474.704 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 168.904, 68.2056 )
+extents = Vector2( 86.3958, 457.429 )
 
 [sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 168.904, 68.2056 )
+
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 632.938, 10 )
 
 [node name="Game" type="Node2D"]
 
 [node name="GUI" type="CanvasLayer" parent="."]
+layer = 100
+script = ExtResource( 11 )
 
 [node name="pause_menu" parent="GUI" instance=ExtResource( 9 )]
-
-[node name="Button" parent="GUI/pause_menu/CanvasLayer" index="0"]
-visible = false
-
-[node name="Button2" parent="GUI/pause_menu/CanvasLayer" index="1"]
-visible = false
-
-[node name="ColorRect" parent="GUI/pause_menu/CanvasLayer" index="2"]
 visible = false
 
 [node name="inventory" parent="GUI" instance=ExtResource( 12 )]
 
 [node name="dialogue_panel" parent="GUI" instance=ExtResource( 13 )]
 visible = false
+
+[node name="Label" type="Label" parent="GUI"]
+margin_right = 71.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level_skip_button" type="Button" parent="GUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -84.0
+margin_bottom = 20.0
+text = "NEXT LEVEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="audio_manage" type="Node" parent="."]
 pause_mode = 2
@@ -90,7 +109,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D"]
 position = Vector2( -265.285, -198.03 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="layout/boundaries"]
 collision_layer = 8
@@ -98,7 +117,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D2"]
 position = Vector2( -446.501, 254.076 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="layout/boundaries"]
 position = Vector2( 1716.36, -452.856 )
@@ -107,7 +126,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D5"]
 position = Vector2( -840.589, 228.149 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="layout/boundaries"]
 collision_layer = 8
@@ -115,7 +134,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D3"]
 position = Vector2( 97.1467, -801.46 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="layout/boundaries"]
 position = Vector2( 1411.61, 1675.28 )
@@ -124,7 +143,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D6"]
 position = Vector2( -100.155, -595.19 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="layout/boundaries"]
 position = Vector2( 1194.58, 1632.23 )
@@ -133,7 +152,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D7"]
 position = Vector2( 9.25751, -858.857 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="layout/boundaries"]
 position = Vector2( 1156.91, 2294.09 )
@@ -142,7 +161,7 @@ collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D8"]
 position = Vector2( 9.25751, -858.857 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="layout/boundaries"]
 collision_layer = 8
@@ -151,7 +170,7 @@ collision_mask = 31
 [node name="CollisionShape2D" type="CollisionShape2D" parent="layout/boundaries/StaticBody2D4"]
 position = Vector2( 718.714, -629.386 )
 rotation = 0.6353
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="enemies" type="Node2D" parent="."]
 
@@ -170,7 +189,7 @@ rotation = -1.32645
 quest_id = "quest1"
 
 [node name="notion" parent="npcs/villager" index="3"]
-position = Vector2( 50.9641, -13.7491 )
+position = Vector2( 49.6852, -13.2922 )
 rotation = 1.32645
 
 [node name="items" type="Node2D" parent="."]
@@ -181,7 +200,5 @@ position = Vector2( 722.453, 371.5 )
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 76.7125, -728.965 )
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
-
-[editable path="GUI/pause_menu"]
 
 [editable path="npcs/villager"]

@@ -26,7 +26,7 @@ var QuestState = {
 }
 
 var quest_states = {}
-
+var _current_level_index = 1
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -96,3 +96,19 @@ func _input(event):
 				transition_to(GameState.PAUSED)
 			elif _current_state == GameState.PAUSED:
 				transition_to(GameState.GAME)
+
+
+func goto_next_level():
+	match _current_level_index:
+		1: 
+			_current_level_index = 2
+			SceneLoader.goto_scene('res://levels/level_02.tscn')
+
+		2: 
+			_current_level_index = 3
+			SceneLoader.goto_scene('res://levels/level_03.tscn')
+			
+		# THIS NEEDS TO BE VICTORY - BUT OK
+		3: 
+			_current_level_index = 1
+			SceneLoader.goto_scene('res://levels/level_01.tscn')
