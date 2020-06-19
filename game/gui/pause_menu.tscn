@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/pause_menu.gd" type="Script" id=1]
+[ext_resource path="res://global/font/main.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=3]
 
-[node name="pause_menu" type="Control"]
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 3 )
+
+[node name="pause_menu" type="Node2D"]
 pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
@@ -20,10 +21,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -68.0
-margin_top = -44.0
+margin_top = -0.574371
 margin_right = 68.0
-margin_bottom = -10.0
+margin_bottom = 33.4256
 size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
 text = "Resume"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -35,11 +37,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -68.0
-margin_top = -1.85495
+margin_top = 41.5707
 margin_right = 68.0
-margin_bottom = 33.1451
+margin_bottom = 76.5707
 size_flags_vertical = 0
-text = "Leave Area"
+custom_fonts/font = ExtResource( 2 )
+text = "Back to menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,6 +53,20 @@ anchor_bottom = 1.0
 margin_left = -2.44351
 margin_right = -2.44351
 color = Color( 0, 0, 0, 0.345098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -86.7669
+margin_top = 43.4256
+margin_right = 81.2331
+margin_bottom = 98.4256
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
