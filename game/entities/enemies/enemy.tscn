@@ -29,7 +29,6 @@ extents = Vector2( 39.0019, 36.9997 )
 "enemies",
 ]]
 self_modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
-position = Vector2( 655, 119 )
 collision_layer = 2
 script = ExtResource( 2 )
 look_direction = 0
