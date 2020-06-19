@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/villagers/villager.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/npcs/npc.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://entities/villagers/notion.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 16.3662
@@ -55,7 +54,6 @@ hframes = 8
 
 [node name="notion" type="Node2D" parent="."]
 position = Vector2( -1.88214, -70.6395 )
-script = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="notion"]
 anchor_bottom = 0.39

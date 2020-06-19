@@ -174,7 +174,6 @@ quest_id = "quest1"
 [node name="notion" parent="npcs/villager" index="3"]
 position = Vector2( 50.9641, -13.7491 )
 rotation = 1.32645
-script = null
 
 [node name="items" type="Node2D" parent="."]
 
