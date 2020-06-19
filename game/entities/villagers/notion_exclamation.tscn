@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://global/font/main.tres" type="DynamicFont" id=1]
+[ext_resource path="res://entities/villagers/notion.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.176913, 0.346309 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[node name="notion" type="Node2D"]
+position = Vector2( -1.88214, -70.6395 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_bottom = 0.39
+margin_right = 28.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0117647, 0.992157, 0.027451, 1 )
+text = "!"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bounce = SubResource( 3 )
