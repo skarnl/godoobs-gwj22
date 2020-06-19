@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://levels/level1.gd" type="Script" id=1]
+[ext_resource path="res://concept_levels/level1.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sound/AudioManager.gd" type="Script" id=3]
 [ext_resource path="res://entities/enemies/enemy.tscn" type="PackedScene" id=4]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/icon.png" type="Texture" id=7]
 [ext_resource path="res://gui/player_UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "icon.png 0"
