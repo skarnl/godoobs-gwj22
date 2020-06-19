@@ -33,9 +33,18 @@ extents = Vector2( 632.938, 10 )
 [node name="Game" type="Node2D"]
 
 [node name="GUI" type="CanvasLayer" parent="."]
-layer = 100
 
 [node name="pause_menu" parent="GUI" instance=ExtResource( 9 )]
+margin_left = -0.435669
+margin_right = -0.435669
+
+[node name="Button" parent="GUI/pause_menu/CanvasLayer" index="0"]
+visible = false
+
+[node name="Button2" parent="GUI/pause_menu/CanvasLayer" index="1"]
+visible = false
+
+[node name="ColorRect" parent="GUI/pause_menu/CanvasLayer" index="2"]
 visible = false
 
 [node name="inventory" parent="GUI" instance=ExtResource( 12 )]
@@ -162,6 +171,10 @@ position = Vector2( 388, 305 )
 rotation = -1.32645
 quest_id = "quest1"
 
+[node name="notion" parent="npcs/villager" index="3"]
+position = Vector2( 50.9641, -13.7491 )
+rotation = 1.32645
+
 [node name="items" type="Node2D" parent="."]
 
 [node name="Bread" parent="items" instance=ExtResource( 8 )]
@@ -170,3 +183,7 @@ position = Vector2( 722.453, 371.5 )
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 76.7125, -728.965 )
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
+
+[editable path="GUI/pause_menu"]
+
+[editable path="npcs/villager"]
