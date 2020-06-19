@@ -3,6 +3,8 @@
 [ext_resource path="res://entities/items/item.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/items/items.png" type="Texture" id=2]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "pickup"
 length = 0.5
