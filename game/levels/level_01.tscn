@@ -162,6 +162,10 @@ position = Vector2( 388, 305 )
 rotation = -1.32645
 quest_id = "quest1"
 
+[node name="notion" parent="npcs/villager" index="3"]
+position = Vector2( 49.6852, -13.2922 )
+rotation = 1.32645
+
 [node name="items" type="Node2D" parent="."]
 
 [node name="Bread" parent="items" instance=ExtResource( 8 )]
@@ -170,3 +174,5 @@ position = Vector2( 722.453, 371.5 )
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 76.7125, -728.965 )
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
+
+[editable path="npcs/villager"]

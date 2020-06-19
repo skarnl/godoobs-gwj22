@@ -35,8 +35,6 @@ extents = Vector2( 632.938, 10 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="GUI" instance=ExtResource( 9 )]
-margin_left = -0.435669
-margin_right = -0.435669
 
 [node name="Button" parent="GUI/pause_menu/CanvasLayer" index="0"]
 visible = false
