@@ -1,0 +1,93 @@
+{
+    "title": "Quest for Cheese",
+    "follower_id": "CHEESE",
+    "dialogs": {
+        "not_active": [
+            {
+                "entry": true,
+                "label": "start",
+                "text": "\"Truffade, Gougères, Chèvre chaud, Le Welsh, Tartiflette... A true gourmet rat can only dream. This smelly factory, it destroys the senses of a true gourmet...\"",
+                "responses": [
+                    {
+                        "text": "\"What are you talking about? We have a revolution to plan!\"",
+                        "next_label": "ask_question"
+                    },
+                    {
+                        "text": "\"Yes. It smells awful here. Bye!\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "ask_question",
+                "text": "\"I am talking about cheese my dear com-rat. No revolution has been made on an empty stomach. Furthermore, there is no food that can be improved by cheese. Right?\"",
+                "responses": [
+                    {
+                        "text": "\"Right! Where could we get some cheese for the revolution?\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"How about soup?\"",
+                        "next_label": "ask_question_2"
+                    },
+                    {
+                        "text": "\"The revolution has more important concerns than cheese. /nFarewell!\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+			{
+                "label": "ask_question_2",
+                "text": "\"Soup? /nHow would you like a cheesy onion soup, \nor a tomato soup with some extra cheese?\"",
+                "responses": [
+                    {
+                        "text": "\"Mmm... Yes, where could i find some cheese?\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"Well... How about porridge?\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "rejected",
+                "text": "\"Yes... Yes. \nA disciple of higher food culture is doomed in this place...\""                
+            },
+            {
+                "label": "accepted",
+                "text": "\"Yes...Yes... You understand my com-rat! I saw some cheese near here, guarded by those cats... \nThey have no appreciation for it...\"",
+                "next_state": "active"
+            }
+			],
+        "active": [
+            {
+                "entry": true,
+                "label": "just_checking",
+                "text": "\"Have you found the cheese? A proffesional rat cook cannot do without it!\"",
+                "responses": [
+                    {
+                        "conditional_item": "CHEESE",
+                        "text": "\"Here it is. I think it has some mold on it though... \"",
+                        "next_label": "quest_finished"
+                    },
+                    {
+                        "text": "No, not yet. But, keep the oven warm!"                        
+                    }
+                ]
+            },
+            {
+                "label": "quest_finished",
+                "text": "\"That blue? It is the best! It will be ready soon... \nCan you smell it? The grilling cheese? Mmmm....\"",
+                "next_state": "done"
+            }
+        ],
+        "done": [
+            {
+                "entry": true,
+                "label": "nothing_to_see",
+                "text": "\"How is it going com-rat? Try some of my Truffade!\""                
+            }
+        ]
+    }
+}

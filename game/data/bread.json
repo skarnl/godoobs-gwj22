@@ -1,5 +1,6 @@
 {
     "title": "Quest for Bread",
+    "follower_id": "BREAD",
     "dialogs": {
         "not_active": [
             {

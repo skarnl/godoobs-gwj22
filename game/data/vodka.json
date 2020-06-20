@@ -1,0 +1,61 @@
+{
+    "title": "Quest for Vodka",
+    "follower_id": "VODKA",
+    "dialogs": {
+        "not_active": [
+            {
+                "entry": true,
+                "label": "start",
+                "text": "\"Who is *hick* that? Aren't you the *hick* rat who has been \norganizing *hick* the rat-sistance? Tell you what! *hick* You \nbring me a vodka bottle. *hick* Help me feel like a rat again *hick* \nand I will help you with your *hick* little revolution? \nI think I saw some vodka near here...\"",
+                "responses": [
+                    {
+                        "text": "\"You can count on me, com-rat!\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"The rat-sistance has no use for a drunk!\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "rejected",
+                "text": "\"Bite off then! *hick* And let me suffer in peace!\""                
+            },
+            {
+                "label": "accepted",
+                "text": "\"Thank you, com-rat! *hick* Please hurry! \nCan't have a *hick* cat find me like this!\"",
+                "next_state": "active"
+            }
+        ],
+        "active": [
+            {
+                "entry": true,
+                "label": "just_checking",
+                "text": "\"Do you have my *hick* vodka yet? I'm *hick* in pain here!\"",
+                "responses": [
+                    {
+                        "conditional_item": "VODKA",
+                        "text": "\"Here you go! Ready to join the uprising now?\"",
+                        "next_label": "quest_finished"
+                    },
+                    {
+                        "text": "Not yet. You hold on there, alright!"                        
+                    }
+                ]
+            },
+            {
+                "label": "quest_finished",
+                "text": "\"*GULP* *GULP* *GULP* \nHell yeah! I'm ready for ANYTHING! The Cats will get their due!\"",
+                "next_state": "done"
+            }
+        ],
+        "done": [
+            {
+                "entry": true,
+                "label": "nothing_to_see",
+                "text": "\"Hey! My favorite rat! Can't wait to bring the fight to the cats!\""                
+            }
+        ]
+    }
+}

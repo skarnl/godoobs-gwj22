@@ -1,0 +1,79 @@
+{
+    "title": "Quest for Firecrackers",
+    "follower_id": "FIRECRACKER",
+    "dialogs": {
+        "not_active": [
+            {
+                "entry": true,
+                "label": "start",
+                "text": "\"HEHEHE... What do we have here. A rat revolution recruiter? WHY! WHY?\"",
+                "responses": [
+                    {
+                        "text": "\"Yes, I am. Shall we struggle towards the rat-topia together?\"",
+                        "next_label": "ask_question"
+                    },
+					{
+                        "text": "\"Clearly not a dutiful proletaria-rat. Why not join the revolt?\"",
+                        "next_label": "ask_question"
+                    },
+                    {
+                        "text": "\"Rat it down! I'm leaving.\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "ask_question",
+                "text": "\"Revolting sounds tempting. I am not a rat supporting a hierarchy. \nHowever a revolt is nothing without a BOOM! Find me some FIRECRACKERS!!\nThat would really BLOW UP THE PARTY!!! HEHEHEHE....\"",
+                "responses": [
+                    {
+                        "text": "\"Sure, you will get your firecracker.\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"I'm leaving! Not nutty enough to bring you any explosives.\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "rejected",
+                "text": "\"You better leave!\nYOU, REAR BITING, TINY TAILED, CAT PUKE!!!\""                
+            },
+            {
+                "label": "accepted",
+                "text": "\"I am sure you will not regret it.\nONCE YOU SEE THE FIREWORKS!\"",
+                "next_state": "active"
+            }
+        ],
+        "active": [
+            {
+                "entry": true,
+                "label": "just_checking",
+                "text": "\"You got it?\nI WANNA SEE SOMETHING BLOW UP!!!\"",
+                "responses": [
+                    {
+                        "conditional_item": "FIRECRACKER",
+                        "text": "\"Here you go. Handle with care. Right?\"",
+                        "next_label": "quest_finished"
+                    },
+                    {
+                        "text": "Not yet my rat. Have some patience."                        
+                    }
+                ]
+            },
+            {
+                "label": "quest_finished",
+                "text": "\"Don't you worry my com-rat friend. It will be RATTING GLORIOUS!\"",
+                "next_state": "done"
+            }
+        ],
+        "done": [
+            {
+                "entry": true,
+                "label": "nothing_to_see",
+                "text": "\"Can't wait for the BANG, friend! You just give the word.\nLETS START THE FIREWORKS ALREADY!!\""                
+            }
+        ]
+    }
+}
