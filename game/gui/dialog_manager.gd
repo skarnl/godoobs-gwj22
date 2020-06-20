@@ -39,6 +39,8 @@ func _render_dialog() -> void:
 	_clear_responses()
 	
 	if _current_dialog.has('responses'):
+		var first_button_focussed = false
+		
 		for index in _current_dialog.responses.size():
 			var response := _current_dialog.responses[index] as Dictionary
 			var show_button = true
@@ -51,8 +53,9 @@ func _render_dialog() -> void:
 				button.text = response.text
 				button.show()
 				
-				if index == 0:
+				if not first_button_focussed:
 					button.grab_focus()
+					first_button_focussed = true
 	else:
 		response1.text = 'Continue'
 		response1.show()
