@@ -7,5 +7,8 @@ const types = {
 	"CHEESE": 2,
 	"FIRECRACKER": 3,
 	"CLOCK": 4,
-	"STICK": 5
+	"DOLL": 5,
+	"ROSE": 6,
+	"BOOK": 7,
+	"TOOTHPICK": 8
 }
