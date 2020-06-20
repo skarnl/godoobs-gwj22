@@ -292,7 +292,7 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
-[sub_resource type="CircleShape2D" id=34]
+[sub_resource type="CircleShape2D" id=31]
 radius = 16.1816
 
 [sub_resource type="RectangleShape2D" id=32]
@@ -337,7 +337,7 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walking/blend_position = Vector2( -0.548177, 0.44569 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 34 )
+shape = SubResource( 31 )
 
 [node name="detection_area" type="Area2D" parent="."]
 visible = false
@@ -355,6 +355,7 @@ shape = SubResource( 33 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+editor_draw_screen = false
 __meta__ = {
 "_editor_description_": "This needs to be a child of player, since we want to follow the player"
 }
