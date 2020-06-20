@@ -35,3 +35,6 @@ func _toggle(show: bool):
 	$CanvasLayer/Button.visible = show
 	$CanvasLayer/Button2.visible = show
 	$CanvasLayer/ColorRect.visible = show
+
+	if show:
+		$CanvasLayer/Button.grab_focus()
