@@ -1,0 +1,79 @@
+{
+    "title": "Quest for Doll",
+	"follower_id": "DOLL",
+    "dialogs": {
+        "not_active": [
+            {
+                "entry": true,
+                "label": "start",
+                "text": "\"I'm scared! The cats they took Mommy!\nShe told me to run! So I ran... and ran...and ran...\n But i dropped my doll. I am so afraid without it...\"",
+                "responses": [
+                    {
+                        "text": "\"Of course I will help.\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"What can a little rat pup offer the rebellion?\"",
+                        "next_label": "ask_question"
+                    },
+					{
+                        "text": "\"I have no time to search for missing toys. \"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "ask_question",
+                "text": "\"I have crawled all around the factory.\nI am tiny so I can fit everywhere. Please, please find my doll!\nI am too scared to do anything without it.\"",
+                "responses": [
+                    {
+                        "text": "\"Okay! I will find you your toy.\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"Still not convinced you could be helpful.\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "rejected",
+                "text": "\"My little Dolly... how I miss it... and my Mommy.\""                
+            },
+            {
+                "label": "accepted",
+                "text": "\"Thank you! I will hide here until you find it.\"",
+                "next_state": "active"
+            }
+			],
+        "active": [
+            {
+                "entry": true,
+                "label": "just_checking",
+                "text": "\"Have you found it?\n It is something to remind me of my Mommy...\"",
+                "responses": [
+                    {
+                        "conditional_item": "DOLL",
+                        "text": "\"Here it is. Do you feel safer now?\"",
+                        "next_label": "quest_finished"
+                    },
+                    {
+                        "text": "\"No, still looking.\""                        
+                    }
+                ]
+            },
+            {
+                "label": "quest_finished",
+                "text": "\"Yes, yes much safer. \nDid you know there is a small tunnel leading to the cat headquarters.\nHonestly! I have sneaked in there many times!\"",
+                "next_state": "done"
+            }
+        ],
+        "done": [
+            {
+                "entry": true,
+                "label": "nothing_to_see",
+                "text": "\"Lalala... Good to have my doll back.\nDid you want something?\""                
+            }
+        ]
+    }
+}

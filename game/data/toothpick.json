@@ -1,0 +1,78 @@
+{
+    "title": "Quest for TOOTHPICK",
+    "follower_id": "TOOTHPICK",
+    "dialogs": {
+        "not_active": [
+            {
+                "entry": true,
+                "label": "start",
+                "text": "\"No...no...no... They'll all starve... What can a simple rat dame do?\nWho would help her?\"",
+                "responses": [
+                    {
+                        "text": "\"You seem troubled. How can I help?\"",
+                        "next_label": "ask_question"
+                    },
+                    {
+                        "text": "Leave her to lament."                        
+                    }
+                ]
+            },
+            {
+                "label": "ask_question",
+                "text": "\"Oh, I'm sorry! Didn't notice you there!\nOh, it's my little dear rat pups. I had so many of em.\nNothing I could do about it. But the cats don't care.\nThey only give us the leftover crumbs. How can a mother choose which of her pups to feed?\"",
+                "responses": [
+                    {
+                        "text": "\"I will happily help out a struggling com-rat\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"I will find you some food, if you and your litter join the revolution.\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"The rat-sistance has no use for a starving litter!\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "rejected",
+                "text": "\"I understand. Times are hard on all of us rats.\""                
+            },
+            {
+                "label": "accepted",
+                "text": "\"Thank you! You will save 78 future com-rats!\nWe will all happily join you in building the rat-topia!\nThere is a loaf of bread guarded by the cats somewhere near here...\"",
+                "next_state": "active"
+            }
+        ],
+        "active": [
+            {
+                "entry": true,
+                "label": "just_checking",
+                "text": "\"Have you found the bread yet?\nThe pups... they cry for it all the time...\"",
+                "responses": [
+                    {
+                        "conditional_item": "TOOTHPICK",
+                        "text": "\"Here you go! Hope this is enough for your litter.\"",
+                        "next_label": "quest_finished"
+                    },
+                    {
+                        "text": "No. Still on it."                        
+                    }
+                ]
+            },
+            {
+                "label": "quest_finished",
+                "text": "\"Thank you! Thank you!\nWe can clean and cook and garden and...\nWe'll better make our way to the resistance.\"",
+                "next_state": "done"
+            }
+        ],
+        "done": [
+            {
+                "entry": true,
+                "label": "nothing_to_see",
+                "text": "\"Hi, I want to thank you for bringing me the bread. Me and my pups will help you however we can!\""                
+            }
+        ]
+    }
+}

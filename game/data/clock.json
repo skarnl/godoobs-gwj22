@@ -1,0 +1,105 @@
+{
+    "title": "Quest for Clock",
+	"follower_id": "CLOCK",
+    "dialogs": {
+        "not_active": [
+            {
+                "entry": true,
+                "label": "start",
+                "text": "\"I have lost it. The clock. \nTHE CLOCK!!! My grand-rats clock! It could tell the future you know...\"",
+                "responses": [
+                    {
+                        "text": "\"A clock that shows the future. That could be useful for the revolution.\"",
+                        "next_label": "accepted"
+                    },
+                    {
+                        "text": "\"Not accurate enough to prevent you from losing it. Goodbye, you silly rat!\"",
+                        "next_label": "rejected"
+                    }
+                ]
+            },
+            {
+                "label": "rejected",
+                "text": "\"YOU...\nIt cannot forecast everything.\nBut, it works! I KNOW IT DOES!!\""                
+            },
+            {
+                "label": "accepted",
+                "text": "\"The cats! They took it!\nThey have not a qlue how to use it!!!\nBut still.. they took it!\"",
+                "next_state": "active"            
+			}
+			],
+        "active": [
+            {
+                "entry": true,
+                "label": "just_checking",
+                "text": "\"Have you found it?\nHow can I join a revolution if the clock does not tell me it will be successful?\"",
+                "responses": [
+                    {
+                        "conditional_item": "CLOCK",
+                        "text": "\"Here you go!\nHope it shows a bright future for the revolution.\"",
+                        "next_label": "quest_finished"
+                    },
+                    {
+                        "text": "\"You will have to wait a while longer.\""                        
+                    }
+                ]
+            },
+            {
+                "label": "quest_finished",
+                "text": "\"Oh thank you! My grand-rat's soul is saved.\nThe revolution will succeed... But the dials go wild after that...\nI will help you any way I can, you can be sure of that!\"",
+                "next_state": "done"
+            }
+        ],
+        "done": [
+			{
+                "entry": true,
+                "label": "nothing_to_see",
+                "text": "\"Dial it back one hour and forward four hours...\nthen again back six hours...\"",
+                "responses": [
+					{
+                        "text": "\"Hey! How does the future look?\"",
+                        "next_label": "done_asking"
+                    },
+                    {
+                        "text": "Leave him to the clock."
+                    }
+				]
+			},
+			{
+                "label": "done_asking",
+                "text": "\"The revolution will succeed... eventually.\nHowever beyond that...\"",
+                "responses": [
+                    {
+                        "text": "\"Beyond that?\nWhat will happen to me?\"",
+                        "next_label": "done_answer1"
+                    },
+                    {
+                        "text": "\"Beyond that?\nWill we ever achieve the rat-topia?\"",
+                        "next_label": "done_answer2"
+                    },
+					{
+                        "text": "\"The revolution succeeds!\nThat is all I want to hear!\""                        
+                    }
+                ]
+            },
+			{
+                "label": "done_answer1",
+                "text": "\"The fate of all revolutionaries awaits you...\nThe clock hands tell: \n...of a flame started, devouring the starter...\"",
+				"responses": [
+					{
+				"text": "\"This seems disheartening...\""
+					}
+				]
+            },
+            {
+                "label": "done_answer2",
+                "text": "\"The clockhands...\nThey say that this revolution will not achieve the rat-topia...\nBut, it it will bring the rats coser to that dream...\"",
+				"responses": [
+					{
+				"text": "\"This seems disheartening...\""
+					}
+				]
+			}
+		]	
+    }
+}
