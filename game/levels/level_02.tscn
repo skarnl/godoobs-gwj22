@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -7,15 +7,13 @@
 [ext_resource path="res://entities/villagers/villager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tilesets/props.tres" type="TileSet" id=6]
 [ext_resource path="res://entities/enemies/enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/items/BreadItem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/items/Item.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://gui/__debug.gd" type="Script" id=11]
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/villagers/notion_exclamation.tscn" type="PackedScene" id=14]
-[ext_resource path="res://entities/items/CheeseItem.tscn" type="PackedScene" id=15]
-[ext_resource path="res://entities/items/VodkaItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://gui/level_finished.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -181,14 +179,17 @@ quest_id = "vodka"
 
 [node name="items" type="Node2D" parent="."]
 
-[node name="Vodka" parent="items" instance=ExtResource( 16 )]
-position = Vector2( 147.181, 205.099 )
-
-[node name="Cheese" parent="items" instance=ExtResource( 15 )]
-position = Vector2( 79.6008, 189.33 )
-
 [node name="Bread" parent="items" instance=ExtResource( 8 )]
-position = Vector2( 51.1548, 156.594 )
+position = Vector2( 73.0564, 177.206 )
+item_type = 0
+
+[node name="Cheese" parent="items" instance=ExtResource( 8 )]
+position = Vector2( 148.998, 45.2298 )
+item_type = 2
+
+[node name="Vodka" parent="items" instance=ExtResource( 8 )]
+position = Vector2( 145.68, 121.54 )
+item_type = 1
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 57.2398, 59.6796 )
@@ -197,6 +198,7 @@ position = Vector2( 57.2398, 59.6796 )
 layer = 100
 
 [node name="inventory" parent="GUI" instance=ExtResource( 12 )]
+visible = false
 
 [node name="dialogue_panel" parent="GUI" instance=ExtResource( 13 )]
 visible = false

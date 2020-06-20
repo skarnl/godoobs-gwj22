@@ -7,6 +7,7 @@ func _ready():
 
 func _on_Game_level_finished():
 	show()
+	$Panel/Button.grab_focus()
 
 
 func _on_Button_pressed():
