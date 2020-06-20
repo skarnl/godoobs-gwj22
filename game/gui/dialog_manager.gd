@@ -2,7 +2,6 @@ extends VBoxContainer
 
 signal dialog_finished
 
-onready var question_portrait := $question/portrait as TextureRect
 onready var question_text := $question/text as RichTextLabel
 onready var response1 := $responses/response1 as Button
 onready var response2 := $responses/response2 as Button
