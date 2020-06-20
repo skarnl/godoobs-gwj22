@@ -6,6 +6,7 @@ onready var question_text := $question/text as RichTextLabel
 onready var response1 := $responses/response1 as Button
 onready var response2 := $responses/response2 as Button
 onready var response3 := $responses/response3 as Button
+onready var character_sprite := $"../character_sprite" as AnimatedSprite
 
 var _dialogs: Dictionary
 var _current_quest_id: String
@@ -23,6 +24,10 @@ func start(quest_id: String, json: Dictionary) -> void:
 	_dialogs = json.dialogs
 	_current_follower_id = json.follower_id
 	_current_quest_status = Game.get_quest_state(quest_id)
+	if _current_quest_status == Game.QuestState.DONE:
+		character_sprite.set_frame(ItemTypes.types[json.follower_id] + 4) # TODO fix this number when we add more characters
+	else:
+		character_sprite.set_frame(ItemTypes.types[json.follower_id])
 	
 	_current_dialog = _get_entry_point()
 	_render_dialog()	
