@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://global/font/main.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menu/start_button.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/ui/main/ratvolution-logo.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/ui/main/play-button.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/ui/main/credits-button.png" type="Texture" id=6]
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -18,28 +22,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -217.086
-margin_top = 95.2218
-margin_right = -167.086
-margin_bottom = 115.222
-text = "START"
+margin_left = -222.0
+margin_top = 93.1239
+margin_right = -176.0
+margin_bottom = 113.124
+flat = true
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="Panel/start_button"]
+position = Vector2( 23.9471, 9.63727 )
+texture = ExtResource( 5 )
+hframes = 2
 
 [node name="credits_button" type="Button" parent="Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -157.633
-margin_top = 94.1034
-margin_right = -93.6332
-margin_bottom = 114.103
-text = "CREDITS"
+margin_left = -165.168
+margin_top = 92.5398
+margin_right = -84.1682
+margin_bottom = 112.54
+flat = true
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="Panel/credits_button"]
+position = Vector2( 40.3013, 9.34521 )
+texture = ExtResource( 6 )
+hframes = 2
 
 [node name="quit_button" type="Button" parent="Panel"]
 anchor_left = 0.5
@@ -54,6 +70,10 @@ text = "QUIT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ratvolution-logo" type="Sprite" parent="Panel"]
+position = Vector2( 100.721, 210.747 )
+texture = ExtResource( 4 )
 
 [node name="credits" type="Panel" parent="."]
 visible = false
