@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/player_tail.tscn" type="PackedScene" id=2]
@@ -293,13 +293,10 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
 [sub_resource type="CircleShape2D" id=31]
-radius = 16.1816
+radius = 11.5923
 
-[sub_resource type="RectangleShape2D" id=32]
-extents = Vector2( 32.1899, 31.5542 )
-
-[sub_resource type="CircleShape2D" id=33]
-radius = 21.0656
+[sub_resource type="CircleShape2D" id=32]
+radius = 14.8687
 
 [node name="player" type="KinematicBody2D"]
 collision_mask = 31
@@ -312,7 +309,7 @@ rotation = 2.35619
 [node name="Sprite (Body)" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 60
-frame = 51
+frame = 53
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle_down = SubResource( 1 )
@@ -337,21 +334,19 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walking/blend_position = Vector2( -0.548177, 0.44569 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.91415, 0 )
 shape = SubResource( 31 )
 
 [node name="detection_area" type="Area2D" parent="."]
-visible = false
+collision_layer = 0
 collision_mask = 15
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource( 32 )
-
-[node name="hide_area" type="Area2D" parent="."]
-visible = false
-collision_mask = 15
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hide_area"]
-shape = SubResource( 33 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
