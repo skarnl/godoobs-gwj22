@@ -65,12 +65,13 @@ func _on_player_detector_area_entered(area):
 	#TODO trigger game-over state
 	
 	if area.name=="detection_area":
-		if is_player_seen:
-			area.get_parent().destroy()
-			is_player_seen=false
-			print("player dies")
-		else:
-			destroy()
+		Game.transition_to(Game.GameState.GAME_OVER)
+#		if is_player_seen:
+#			area.get_parent().destroy()
+#			is_player_seen=false
+#			print("player dies")
+#		else:
+#			destroy()
 
 
 func set_player_reference(player_reference:Node2D):

@@ -5,6 +5,7 @@ extends Node
 signal game_paused
 signal game_resumed
 signal level_finished
+signal game_over
 
 
 enum GameState {
@@ -79,8 +80,8 @@ func transition_to(new_state: int) -> void:
 			
 				GameState.GAME_OVER:
 					_current_state = GameState.GAME_OVER
-#					get_tree().paused = true ???
-					SceneLoader.goto_scene('res://ui/game_over.tscn')
+					get_tree().paused = true
+					emit_signal("game_over")
 		
 		GameState.GAME_DIALOG_OPENED:
 				match new_state:
@@ -100,6 +101,7 @@ func transition_to(new_state: int) -> void:
 		GameState.GAME_OVER:
 			if new_state == GameState.MENU:
 				_current_state = GameState.MENU
+				get_tree().paused = false
 				SceneLoader.goto_scene('res://menu/main_menu.tscn')
 				
 		GameState.PAUSED:
@@ -167,3 +169,15 @@ func _set_current_state(new_state:int) -> void:
 	_previous_state = _current_state
 	_current_state = new_state
 
+
+func reset_game() -> void:
+	quest_states = {}
+	_current_level_index = 1
+	Progress.reset()
+
+
+func start_game() -> void:
+	reset_game()
+	
+	transition_to(GameState.GAME)
+	

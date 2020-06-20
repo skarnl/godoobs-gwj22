@@ -65,3 +65,7 @@ func _get_item_index_by_name(name: String) -> int:
 			return item_index
 			
 	return -1
+
+
+func reset() -> void:
+	items = {}
