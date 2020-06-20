@@ -10,14 +10,16 @@ enum GameState {
 	SPLASH,
 	MENU,
 	GAME,
+	GAME_DIALOG_OPENED,
 	PAUSED,
-	GAME_OVER	
+	GAME_OVER
 }
 
 # TODO we need to keep track of the global application state
 # so we can act depending on what state we are in (State Machine pattern)
 
-var _current_state: int = GameState.GAME
+var _current_state: int = GameState.GAME setget _set_current_state
+var _previous_state: int
 
 var QuestState = {
 	"NOT_ACTIVE": "not_active",
@@ -56,13 +58,31 @@ func transition_to(new_state: int) -> void:
 				SceneLoader.goto_scene('res://levels/level_01.tscn')
 				
 		GameState.GAME:
-			if new_state == GameState.PAUSED:
-				_current_state = GameState.PAUSED
-				_handle_paused(true)
+			match new_state:
+				GameState.PAUSED:
+					_current_state = GameState.PAUSED
+					emit_signal("game_paused")
+					get_tree().paused = true
+				
+				GameState.GAME_DIALOG_OPENED:
+					_current_state = GameState.GAME_DIALOG_OPENED
+					get_tree().paused = true
 			
-			if new_state == GameState.GAME_OVER:
-				_current_state = GameState.GAME_OVER
-				SceneLoader.goto_scene('res://ui/game_over.tscn')
+				GameState.GAME_OVER:
+					_current_state = GameState.GAME_OVER
+#					get_tree().paused = true ???
+					SceneLoader.goto_scene('res://ui/game_over.tscn')
+		
+		GameState.GAME_DIALOG_OPENED:
+				match new_state:
+					GameState.GAME:
+						_current_state = GameState.GAME
+						get_tree().paused = false
+					
+					GameState.PAUSED:
+						_current_state = GameState.PAUSED
+						emit_signal("game_paused")
+						get_tree().paused = true
 		
 		GameState.GAME_OVER:
 			if new_state == GameState.MENU:
@@ -70,32 +90,38 @@ func transition_to(new_state: int) -> void:
 				SceneLoader.goto_scene('res://menu/main_menu.tscn')
 				
 		GameState.PAUSED:
-			if new_state == GameState.MENU:
-				get_tree().paused = false
-				_current_state = GameState.MENU
-				SceneLoader.goto_scene('res://menu/main_menu.tscn')
+			match new_state:
+				GameState.MENU:
+					_current_state = GameState.MENU
+					get_tree().paused = false
+					emit_signal("game_resumed")
+					SceneLoader.goto_scene('res://menu/main_menu.tscn')
 				
-			if new_state == GameState.GAME:
-				_current_state = GameState.GAME
-				_handle_paused(false)
+				GameState.GAME:
+					_current_state = GameState.GAME
+					get_tree().paused = false
+					emit_signal("game_resumed")
 
-
-func _handle_paused(paused: bool):
-	if paused:
-		emit_signal("game_paused")
-		get_tree().paused = true
-	else:
-		emit_signal("game_resumed")
-		get_tree().paused = false
+				GameState.GAME_DIALOG_OPENED:
+					_current_state = GameState.GAME_DIALOG_OPENED
+					emit_signal("game_resumed")
 
 
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_ESCAPE:
-			if _current_state == GameState.GAME:
-				transition_to(GameState.PAUSED)
-			elif _current_state == GameState.PAUSED:
-				transition_to(GameState.GAME)
+			match _current_state:
+				GameState.GAME:
+					transition_to(GameState.PAUSED)
+			
+				GameState.GAME_DIALOG_OPENED:
+					transition_to(GameState.PAUSED)
+			
+				GameState.PAUSED:
+					if _previous_state == GameState.GAME_DIALOG_OPENED:
+						transition_to(GameState.GAME_DIALOG_OPENED)
+					else:
+						transition_to(GameState.GAME)
 
 
 func goto_next_level():
@@ -112,3 +138,7 @@ func goto_next_level():
 		3: 
 			_current_level_index = 1
 			SceneLoader.goto_scene('res://levels/level_01.tscn')
+
+func _set_current_state(new_state:int) -> void:
+	_previous_state = _current_state
+	_current_state = new_state
