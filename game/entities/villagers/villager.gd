@@ -8,38 +8,21 @@ extends StaticBody2D
 #	"dialogue_info_no":["this is a negative response. I am against the revolution"]
 #}
 
-onready var notion_animation_player = $notion/AnimationPlayer
-onready var notion_area = $notion_area
 export var quest_id:String
 
 #var dialogued=false
 #export var villager_value=20 #how much percentage does this villager contribute to the revolution
 #var ally:bool
 
-func _ready():
-	notion_area.connect("body_entered", self, '_on_notion_area_body_entered')
-	notion_area.connect("body_exited", self, '_on_notion_area_body_exited')
-
 func _on_Area2D_body_entered(body):
 	interactions.start_dialog(quest_id)
-	notion_animation_player.stop(true)
 	
-
-func _on_notion_area_body_entered(body):
-	notion_animation_player.play("bounce")	
-
-func _on_notion_area_body_exited(body):
-	notion_animation_player.stop(true)
 
 #	if !dialogued:
 #		var dbox=dialog_box.instance()
 #		dbox.name="dia_box"
 #		add_child(dbox)
 #		dbox.read("dialogue_info",false)
-
-
-func _on_Area2D_body_exited(body):
-	notion_animation_player.play("bounce")
 	
 #	if has_node("dia_box"):
 #		get_node("dia_box").destroy()

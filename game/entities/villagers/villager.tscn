@@ -1,37 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/villagers/villager.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/npcs/npc.png" type="Texture" id=2]
-[ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=1]
 radius = 16.3662
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=2]
 radius = 7.05244
-
-[sub_resource type="DynamicFont" id=8]
-size = 64
-font_data = ExtResource( 3 )
-
-[sub_resource type="Animation" id=7]
-resource_name = "bounce"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Label:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.176913, 0.346309 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 107.613
 
 [node name="villager" type="StaticBody2D"]
 collision_layer = 4
@@ -41,38 +17,15 @@ script = ExtResource( 1 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0.345098, 0.654902, 0.321569, 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 8
-
-[node name="notion" type="Node2D" parent="."]
-position = Vector2( -1.88214, -70.6395 )
-
-[node name="Label" type="Label" parent="notion"]
-anchor_bottom = 0.39
-margin_right = 28.0
-margin_bottom = 55.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0.0117647, 0.992157, 0.027451, 1 )
-text = "!"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="notion"]
-anims/bounce = SubResource( 7 )
-
-[node name="notion_area" type="Area2D" parent="."]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="notion_area"]
-shape = SubResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

@@ -1,38 +1,65 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://global/font/main.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://entities/villagers/notion.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
 resource_name = "bounce"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Label:rect_position")
+tracks/0/path = NodePath("Node2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.176913, 0.346309 ),
+"times": PoolRealArray( 0, 0.2, 0.36 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 107.613
+
 [node name="notion" type="Node2D"]
-position = Vector2( -1.88214, -70.6395 )
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-anchor_bottom = 0.39
-margin_right = 28.0
-margin_bottom = 55.0
-custom_fonts/font = ExtResource( 1 )
+[node name="Node2D" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = -1.57491
+margin_top = -41.5776
+margin_right = 10.4251
+margin_bottom = 13.4224
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.0117647, 0.992157, 0.027451, 1 )
 text = "!"
+align = 1
+valign = 1
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/bounce = SubResource( 3 )
+anims/bounce = SubResource( 2 )
+
+[node name="notion_area" type="Area2D" parent="."]
+visible = false
+position = Vector2( 0, 14.1742 )
+collision_layer = 8
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notion_area"]
+position = Vector2( 4.72473, -41.5776 )
+shape = SubResource( 3 )
