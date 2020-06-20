@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://entities/villagers/notion_exclamation.tscn" type="PackedScene" id=14]
 [ext_resource path="res://entities/items/CheeseItem.tscn" type="PackedScene" id=15]
 [ext_resource path="res://entities/items/VodkaItem.tscn" type="PackedScene" id=16]
+[ext_resource path="res://gui/level_finished.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.3484, 626.97 )
@@ -202,7 +203,8 @@ visible = false
 
 [node name="pause_menu" parent="GUI" instance=ExtResource( 9 )]
 
-[node name="level_finished" type="Node2D" parent="GUI"]
+[node name="level_finished" parent="GUI" instance=ExtResource( 17 )]
+visible = false
 
 [node name="debug" type="Node2D" parent="GUI"]
 script = ExtResource( 11 )
@@ -217,30 +219,6 @@ __meta__ = {
 }
 
 [node name="level_skip_button" type="Button" parent="GUI/debug"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 396.0
-margin_right = 480.0
-margin_bottom = 20.0
-text = "NEXT LEVEL"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="debug2" type="Node2D" parent="GUI"]
-position = Vector2( 0.528564, 0 )
-script = ExtResource( 11 )
-
-[node name="Label" type="Label" parent="GUI/debug2"]
-margin_right = 71.0
-margin_bottom = 21.0
-custom_fonts/font = SubResource( 7 )
-text = "LEVEL 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="level_skip_button" type="Button" parent="GUI/debug2"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = 396.0

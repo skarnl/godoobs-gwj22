@@ -4,6 +4,7 @@ extends Node
 
 signal game_paused
 signal game_resumed
+signal level_finished
 
 
 enum GameState {
@@ -88,7 +89,8 @@ func transition_to(new_state: int) -> void:
 						get_tree().paused = false
 						
 						if is_current_level_finished:
-							goto_next_level()
+							emit_signal("level_finished")
+							get_tree().paused = true
 						
 					GameState.PAUSED:
 						_current_state = GameState.PAUSED
@@ -140,6 +142,7 @@ func goto_next_level():
 	# TODO show some kind of message you have gathered enough followers and will continue your quest
 	
 	is_current_level_finished = false
+	get_tree().paused = false
 	
 	match _current_level_index:
 		1: 
