@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/villagers/notion_exclamation.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/items/CheeseItem.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/items/VodkaItem.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.3484, 626.97 )
@@ -153,24 +155,45 @@ look_direction = 3
 [node name="npcs" type="Node2D" parent="."]
 
 [node name="bread_notion" parent="npcs" instance=ExtResource( 14 )]
-position = Vector2( 284.739, 39.4395 )
+position = Vector2( 285.574, 38.4796 )
 
 [node name="bread_npc" parent="npcs" instance=ExtResource( 5 )]
 position = Vector2( 284.377, 51.8548 )
-rotation = -2.59269
+rotation = -1.97808
 quest_id = "bread"
+
+[node name="cheese_notion" parent="npcs" instance=ExtResource( 14 )]
+position = Vector2( 290.019, 118.546 )
+
+[node name="cheese_npc" parent="npcs" instance=ExtResource( 5 )]
+position = Vector2( 288.432, 132.951 )
+rotation = -1.61422
+quest_id = "cheese"
+
+[node name="vodka_notion" parent="npcs" instance=ExtResource( 14 )]
+position = Vector2( 238.61, 187.929 )
+
+[node name="vodka_npc" parent="npcs" instance=ExtResource( 5 )]
+position = Vector2( 238.873, 203.235 )
+rotation = 1.08315
+quest_id = "vodka"
 
 [node name="items" type="Node2D" parent="."]
 
+[node name="Vodka" parent="items" instance=ExtResource( 16 )]
+position = Vector2( 147.181, 205.099 )
+
+[node name="Cheese" parent="items" instance=ExtResource( 15 )]
+position = Vector2( 79.6008, 189.33 )
+
 [node name="Bread" parent="items" instance=ExtResource( 8 )]
-position = Vector2( 722.453, 371.5 )
+position = Vector2( 51.1548, 156.594 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 57.2398, 59.6796 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 100
-script = ExtResource( 11 )
 
 [node name="inventory" parent="GUI" instance=ExtResource( 12 )]
 
@@ -179,7 +202,12 @@ visible = false
 
 [node name="pause_menu" parent="GUI" instance=ExtResource( 9 )]
 
-[node name="Label" type="Label" parent="GUI"]
+[node name="level_finished" type="Node2D" parent="GUI"]
+
+[node name="debug" type="Node2D" parent="GUI"]
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="GUI/debug"]
 margin_right = 71.0
 margin_bottom = 21.0
 custom_fonts/font = SubResource( 7 )
@@ -188,10 +216,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="level_skip_button" type="Button" parent="GUI"]
+[node name="level_skip_button" type="Button" parent="GUI/debug"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -84.0
+margin_left = 396.0
+margin_right = 480.0
+margin_bottom = 20.0
+text = "NEXT LEVEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="debug2" type="Node2D" parent="GUI"]
+position = Vector2( 0.528564, 0 )
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="GUI/debug2"]
+margin_right = 71.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 7 )
+text = "LEVEL 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level_skip_button" type="Button" parent="GUI/debug2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 396.0
+margin_right = 480.0
 margin_bottom = 20.0
 text = "NEXT LEVEL"
 __meta__ = {

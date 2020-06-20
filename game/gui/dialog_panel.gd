@@ -20,9 +20,7 @@ func _on_dialog_started(quest_id: String) -> void:
 	var json_data = _load_file(quest_id)
 	
 	assert(json_data)
-	assert(json_data.dialogs)
-	
-	dialog_manager.start(quest_id, json_data.dialogs)
+	dialog_manager.start(quest_id, json_data)
 	
 	show()
 	animation_player.play("slide_in")

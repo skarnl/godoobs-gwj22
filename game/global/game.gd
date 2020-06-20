@@ -30,6 +30,8 @@ var QuestState = {
 var quest_states = {}
 var _current_level_index = 1
 
+var is_current_level_finished = false
+
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
@@ -40,9 +42,15 @@ func get_quest_state(quest_id: String) -> String:
 		
 	return QuestState.NOT_ACTIVE
 
-func set_quest_state(quest_id: String, state: String) -> void:
+func set_quest_state(quest_id: String, state: String, follower_id: String) -> void:
 	assert(state in QuestState.values())
 	quest_states[quest_id] = state
+	
+	if state == QuestState.DONE:
+		Progress.add_follower(follower_id)
+		
+		if Progress.get_followers().size() > 0 and Progress.get_followers().size() % 2 == 0:
+			is_current_level_finished = true
 
 # change the state to the next
 func transition_to(new_state: int) -> void:
@@ -78,7 +86,10 @@ func transition_to(new_state: int) -> void:
 					GameState.GAME:
 						_current_state = GameState.GAME
 						get_tree().paused = false
-					
+						
+						if is_current_level_finished:
+							goto_next_level()
+						
 					GameState.PAUSED:
 						_current_state = GameState.PAUSED
 						emit_signal("game_paused")
@@ -125,6 +136,11 @@ func _input(event):
 
 
 func goto_next_level():
+	# TODO play some transition animation first
+	# TODO show some kind of message you have gathered enough followers and will continue your quest
+	
+	is_current_level_finished = false
+	
 	match _current_level_index:
 		1: 
 			_current_level_index = 2
@@ -139,6 +155,12 @@ func goto_next_level():
 			_current_level_index = 1
 			SceneLoader.goto_scene('res://levels/level_01.tscn')
 
+
+func get_current_level() -> int:
+	return _current_level_index
+
+
 func _set_current_state(new_state:int) -> void:
 	_previous_state = _current_state
 	_current_state = new_state
+

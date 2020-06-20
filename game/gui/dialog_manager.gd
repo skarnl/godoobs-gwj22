@@ -12,15 +12,17 @@ var _dialogs: Dictionary
 var _current_quest_id: String
 var _current_quest_status: String
 var _current_dialog: Dictionary
+var _current_follower_id: String
 
 func _ready():
 	response1.connect('pressed', self, '_on_response1_button_pressed')
 	response2.connect('pressed', self, '_on_response2_button_pressed')
 	response3.connect('pressed', self, '_on_response3_button_pressed')
 
-func start(quest_id: String, dialogs: Dictionary) -> void:
+func start(quest_id: String, json: Dictionary) -> void:
 	_current_quest_id = quest_id
-	_dialogs = dialogs
+	_dialogs = json.dialogs
+	_current_follower_id = json.follower_id
 	_current_quest_status = Game.get_quest_state(quest_id)
 	
 	_current_dialog = _get_entry_point()
@@ -89,7 +91,7 @@ func _on_response1_button_pressed():
 		_handle_response(_current_dialog.responses[0])
 	else:
 		if _current_dialog.has('next_state'):
-			Game.set_quest_state(_current_quest_id, _current_dialog.next_state)
+			Game.set_quest_state(_current_quest_id, _current_dialog.next_state, _current_follower_id)
 		
 		_close_dialog()
 
