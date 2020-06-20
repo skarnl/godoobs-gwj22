@@ -194,7 +194,7 @@ position = Vector2( 145.68, 121.54 )
 item_type = 1
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 158.433, 162.444 )
+position = Vector2( 67.412, -405.099 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 100
