@@ -16,6 +16,8 @@ func _ready():
 
 
 func _on_Area2D_body_entered(_body):
+	hit_detection.disconnect("body_entered", self, "_on_Area2D_body_entered")
+	
 	#TODO add check to see if Inventory is full
 	hit_detection.set_monitoring(false)
 	

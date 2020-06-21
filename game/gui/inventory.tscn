@@ -11,4 +11,4 @@ __meta__ = {
 }
 
 [node name="Items" type="Node2D" parent="."]
-position = Vector2( 30, 240 )
+position = Vector2( 40, 230 )
