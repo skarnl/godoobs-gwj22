@@ -270,20 +270,6 @@ texture = ExtResource( 6 )
 centered = false
 hframes = 2
 
-[node name="quit_button" type="Button" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 177.883
-margin_top = 92.1107
-margin_right = 227.883
-margin_bottom = 112.111
-text = "QUIT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ratvolution-logo" type="Sprite" parent="Panel"]
 position = Vector2( 100.721, 210.747 )
 texture = ExtResource( 4 )
