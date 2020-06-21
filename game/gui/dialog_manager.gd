@@ -25,7 +25,7 @@ func start(quest_id: String, json: Dictionary) -> void:
 	_current_follower_id = json.follower_id
 	_current_quest_status = Game.get_quest_state(quest_id)
 	if _current_quest_status == Game.QuestState.DONE:
-		character_sprite.set_frame(ItemTypes.types[json.follower_id] + 4) # TODO fix this number when we add more characters
+		character_sprite.set_frame(ItemTypes.types[json.follower_id] + 9) # TODO fix this number when we add more characters
 	else:
 		character_sprite.set_frame(ItemTypes.types[json.follower_id])
 	
