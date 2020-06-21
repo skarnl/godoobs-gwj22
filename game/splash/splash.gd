@@ -16,4 +16,4 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(animation_name):
-	SceneLoader.goto_scene("res://levels/level_01.tscn")
+	SceneLoader.goto_scene("res://menu/main_menu.tscn")
