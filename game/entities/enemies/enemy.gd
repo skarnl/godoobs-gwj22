@@ -25,6 +25,7 @@ var colors = ['white', 'orange', 'black']
 var _current_color
 
 func _ready():
+	randomize()
 	_current_color = colors[randi() % colors.size()]
 	
 	set_physics_process(false)
