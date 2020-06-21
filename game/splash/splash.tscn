@@ -68,6 +68,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0, 0, 0, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0, 0, 0, 1 ), Color( 0.054902, 0, 0.278431, 1 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../wildcard_npc:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3.5, 4.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -90,6 +102,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
+visible = false
 position = Vector2( 232, 136 )
 scale = Vector2( 0.317308, 0.317308 )
 texture = ExtResource( 1 )
@@ -118,7 +131,6 @@ __meta__ = {
 }
 
 [node name="overlay" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -127,6 +139,7 @@ __meta__ = {
 }
 
 [node name="wildcard_npc" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.25 )
 position = Vector2( 457.458, 237.31 )
 scale = Vector2( 0.17023, 0.17023 )
 texture = ExtResource( 4 )
