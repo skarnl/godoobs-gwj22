@@ -2,11 +2,11 @@ extends Panel
 
 var names = [
 	'Indrek\nwriting\n[url]https://indrek.itch.io/[/url]',
-	'Oskar\nlead programmer\n[url]https://skarnl.itch.io/[/url]',
+	'Oskar\nlead developer\n[url]https://skarnl.itch.io/[/url]',
 	'Janiform\nPixel Artist\n[url]https://janiform.itch.io/[/url]',
 	'Quill\nanimator/artist\n[url]https://quillington.itch.io/[/url]',
 	'Katarsis Studio\nSound\n[url]https://katarsis.itch.io/[/url]',
-	'Randomcode\nprogrammer\n'
+	'Randomcode\ndeveloper\n'
 ]
 
 
