@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walk_Wood_1.wav-e5aa1e3b7a451f103a5111143bb9646c.sample"
+
+[deps]
+
+source_file="res://assets/Sound/Foley/Player/Walk/Wood/Walk_Wood_1.wav"
+dest_files=[ "res://.import/Walk_Wood_1.wav-e5aa1e3b7a451f103a5111143bb9646c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

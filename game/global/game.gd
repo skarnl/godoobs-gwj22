@@ -2,6 +2,8 @@
 
 extends Node
 
+
+
 signal game_paused
 signal game_resumed
 signal level_finished
@@ -36,6 +38,7 @@ var is_current_level_finished = false
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
+
 
 
 func get_quest_state(quest_id: String) -> String:

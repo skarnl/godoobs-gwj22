@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walk_Dirt_1.wav-5b7b7eace4723525557ff922135c0267.sample"
+
+[deps]
+
+source_file="res://assets/Sound/Foley/Player/Walk/Dirt/Walk_Dirt_1.wav"
+dest_files=[ "res://.import/Walk_Dirt_1.wav-5b7b7eace4723525557ff922135c0267.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,6 +1,11 @@
 extends Node2D
 
+#SoundVar#
+var menu_music_clip : AudioStream = load("res://assets/Sound/Music/Menu/Menu.ogg")
+###SoundVarEnd###
+
 func _ready():
+
 	var pos1=$CanvasLayer/Button.get_global_position()
 	var pos2=$CanvasLayer/Button2.get_global_position()
 	$CanvasLayer/Button.set_as_toplevel(true)

@@ -38,6 +38,7 @@ SceneLoader="*res://global/scene_loader.gd"
 politics="*res://global/political_situation.tscn"
 Inventory="*res://global/inventory.gd"
 Progress="*res://global/progress.gd"
+AudioManager="*res://sound/AudioManager.tscn"
 
 [display]
 
