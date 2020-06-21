@@ -34,6 +34,6 @@ func _spawn_new_inventory_node(item_index):
 	node.set_frame(item_index)
 	
 	if items.get_child_count() > 0:
-		node.position.x = 22 * items.get_child_count()
+		node.position.x = 30 * items.get_child_count()
 		
 	items.add_child(node)
