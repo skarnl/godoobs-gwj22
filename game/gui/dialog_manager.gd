@@ -114,7 +114,11 @@ func _handle_response(response: Dictionary) -> void:
 	if response.has('conditional_item'):
 		Inventory.deliver(response.conditional_item)
 	
-	if response.has('next_label'):
+	if response.has('next_state'):
+		Game.set_quest_state(_current_quest_id, response.next_state, _current_follower_id)
+		
+		_close_dialog()
+	elif response.has('next_label'):
 		_current_dialog = find_dialog_by_label(response.next_label)
 		_render_dialog()
 	else:
