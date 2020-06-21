@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/images/menu_animation/cat_animation.png" type="Texture" id=9]
 [ext_resource path="res://assets/images/menu_animation/conveyorbelt.png" type="Texture" id=10]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "conveyorbelt_running"
 length = 1.5
 loop = true
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "cat_move"
 length = 4.0
 loop = true
@@ -45,8 +45,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "show_text"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("credits_text:percent_visible")
 tracks/0/interp = 1
@@ -124,7 +123,7 @@ frame = 14
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/background_animation/conveyorbelt"]
 autoplay = "conveyorbelt_running"
 playback_speed = 0.8
-anims/conveyorbelt_running = SubResource( 2 )
+anims/conveyorbelt_running = SubResource( 1 )
 
 [node name="cat" type="Sprite" parent="Panel/background_animation"]
 texture = ExtResource( 9 )
@@ -135,7 +134,7 @@ frame = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/background_animation/cat"]
 autoplay = "cat_move"
 playback_speed = 0.6
-anims/cat_move = SubResource( 3 )
+anims/cat_move = SubResource( 2 )
 
 [node name="start_button" type="Button" parent="Panel"]
 anchor_left = 0.5
@@ -271,4 +270,4 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="credits"]
 playback_speed = 0.3
-anims/show_text = SubResource( 1 )
+anims/show_text = SubResource( 3 )

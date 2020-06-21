@@ -6,13 +6,16 @@ var names = [
 	'Janiform\nPixel Artist\n[url]https://janiform.itch.io/[/url]',
 	'Quill\nanimator/artist\n[url]https://quillington.itch.io/[/url]',
 	'Katarsis Studio\nSound\n[url]https://katarsis.itch.io/[/url]',
-	'Randomcode\nprogrammer'
+	'Randomcode\nprogrammer\n'
 ]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
+
+
+func _randomize_names():
 	randomize()
 	
 	var random_order = names.duplicate()
@@ -32,5 +35,6 @@ func _ready():
 
 
 func show_credits():
+	_randomize_names()
 	show()
 	$AnimationPlayer.play("show_text")
