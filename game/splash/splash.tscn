@@ -83,7 +83,6 @@ __meta__ = {
 [node name="background" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_scale = Vector2( 0.992025, 1 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -121,7 +120,6 @@ __meta__ = {
 [node name="overlay" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_scale = Vector2( 0.989464, 1.00999 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
