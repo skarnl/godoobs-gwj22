@@ -113,6 +113,7 @@ position = Vector2( -217.879, 752.961 )
 position = Vector2( -219.076, 766.337 )
 rotation = 0.728594
 quest_id = "firecracker"
+frame_index = 5
 
 [node name="notion2" parent="npcs" instance=ExtResource( 14 )]
 position = Vector2( 544.76, 23.5832 )
@@ -121,6 +122,7 @@ position = Vector2( 544.76, 23.5832 )
 position = Vector2( 543.173, 37.9882 )
 rotation = -2.07622
 quest_id = "clock"
+frame_index = 4
 
 [node name="notion3" parent="npcs" instance=ExtResource( 14 )]
 position = Vector2( -22.1608, 28.1504 )
@@ -129,6 +131,7 @@ position = Vector2( -22.1608, 28.1504 )
 position = Vector2( -21.8978, 43.4564 )
 rotation = 1.53327
 quest_id = "doll"
+frame_index = 6
 
 [node name="items" type="Node2D" parent="."]
 

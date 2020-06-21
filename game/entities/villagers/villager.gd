@@ -9,10 +9,15 @@ extends StaticBody2D
 #}
 
 export var quest_id:String
+export var frame_index:int = 0
 
 #var dialogued=false
 #export var villager_value=20 #how much percentage does this villager contribute to the revolution
 #var ally:bool
+
+func _ready():
+	$Sprite.set_frame(frame_index)
+	
 
 func _on_Area2D_body_entered(body):
 	interactions.start_dialog(quest_id)

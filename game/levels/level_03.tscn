@@ -82,6 +82,7 @@ position = Vector2( 516.604, -569.279 )
 position = Vector2( 515.407, -555.904 )
 rotation = -2.48189
 quest_id = "rose"
+frame_index = 6
 
 [node name="cheese_notion" parent="npcs" instance=ExtResource( 14 )]
 position = Vector2( 259.112, -342.252 )
@@ -90,6 +91,7 @@ position = Vector2( 259.112, -342.252 )
 position = Vector2( 257.525, -327.847 )
 rotation = -0.888078
 quest_id = "book"
+frame_index = 7
 
 [node name="vodka_notion" parent="npcs" instance=ExtResource( 14 )]
 position = Vector2( 799.907, -810.152 )
@@ -98,6 +100,7 @@ position = Vector2( 799.907, -810.152 )
 position = Vector2( 800.17, -794.846 )
 rotation = 3.79048
 quest_id = "toothpick"
+frame_index = 4
 
 [node name="items" type="Node2D" parent="."]
 
