@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://gui/dialog_panel.gd" type="Script" id=1]
 [ext_resource path="res://gui/dialog_manager.gd" type="Script" id=2]
@@ -10,11 +10,13 @@
 [ext_resource path="res://assets/images/ui/npc_dialog/dialog_cheese_after.png" type="Texture" id=8]
 [ext_resource path="res://assets/images/ui/npc_dialog/dialog_vodka_before.png" type="Texture" id=9]
 [ext_resource path="res://assets/images/ui/npc_dialog/dialog_vodka_after.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/ui/npc_dialog/other2.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/ui/npc_dialog/other.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 5 ) ],
-"loop": true,
+"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
