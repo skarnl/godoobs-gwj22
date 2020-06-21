@@ -107,15 +107,15 @@ shape = SubResource( 4 )
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="cat" parent="enemies" instance=ExtResource( 7 )]
-position = Vector2( 535.664, 48.3376 )
+position = Vector2( 325.566, -1764.97 )
 rotation = -2.35619
 
 [node name="cat2" parent="enemies" instance=ExtResource( 7 )]
-position = Vector2( -965.538, -24.8556 )
+position = Vector2( -212.418, -1960.99 )
 rotation = 1.05379
 
 [node name="cat3" parent="enemies" instance=ExtResource( 7 )]
-position = Vector2( -574.634, -1295.29 )
+position = Vector2( -180.297, -2226.19 )
 rotation = 0.885724
 
 [node name="npcs" type="Node2D" parent="."]
@@ -148,19 +148,19 @@ quest_id = "vodka"
 [node name="items" type="Node2D" parent="."]
 
 [node name="Bread" parent="items" instance=ExtResource( 8 )]
-position = Vector2( 838.205, -498.976 )
+position = Vector2( 1550.32, -2034.7 )
 item_type = 0
 
 [node name="Cheese" parent="items" instance=ExtResource( 8 )]
-position = Vector2( -1203.13, 187.869 )
+position = Vector2( -1500.81, -56.8392 )
 item_type = 2
 
 [node name="Vodka" parent="items" instance=ExtResource( 8 )]
-position = Vector2( 1669.73, -1947.61 )
+position = Vector2( 865.92, -530.566 )
 item_type = 1
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 56.6956, -2037.87 )
+position = Vector2( 60.0051, -2044.19 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 100
