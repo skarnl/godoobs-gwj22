@@ -1,11 +1,6 @@
 extends Node2D
 
-#SoundVar#
-var menu_music_clip : AudioStream = load("res://assets/Sound/Music/Menu/Menu.ogg")
-###SoundVarEnd###
-
 func _ready():
-
 	var pos1=$CanvasLayer/Button.get_global_position()
 	var pos2=$CanvasLayer/Button2.get_global_position()
 	$CanvasLayer/Button.set_as_toplevel(true)
@@ -36,6 +31,11 @@ func _on_Game_game_resumed():
 
 
 func _toggle(show: bool):
+	if show:
+		show()
+	else:
+		hide()
+		
 	$CanvasLayer/Label.visible = show
 	$CanvasLayer/Button.visible = show
 	$CanvasLayer/Button2.visible = show
