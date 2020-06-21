@@ -20,9 +20,17 @@ export var detection_speed=1000 #how fast does the enemy reduce the progress
 export var value=10 #how much does killing this enemy cost for the progress
 var x:float
 
+var colors = ['white', 'orange', 'black']
+
+var _current_color
+
 func _ready():
+	_current_color = colors[randi() % colors.size()]
+	
 	set_physics_process(false)
-	body_animator.play("idle_right")
+	body_animator.play("idle_right__%s" % _current_color)
+	
+	
 	
 
 func _on_vision_cone_area_entered(area):
@@ -31,7 +39,7 @@ func _on_vision_cone_area_entered(area):
 		is_player_seen=true
 		x=interactions.progress
 		set_physics_process(true)
-		body_animator.play("walk_right")
+		body_animator.play("walk_right__%s" % _current_color)
 	
 func _physics_process(delta):
 	motion = (player.get_global_position() - self.global_position)
@@ -47,7 +55,7 @@ func _on_vision_cone_area_exited(area):
 		motion = 0
 		is_player_seen=false
 		set_physics_process(false)
-		body_animator.play("idle_right")
+		body_animator.play("idle_right__%s" % _current_color)
 
 
 func focus_on_player():
