@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/enemies/enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/items/Item.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/victory.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/villagers/notion_exclamation.tscn" type="PackedScene" id=14]
@@ -135,4 +136,6 @@ visible = false
 
 [node name="game_over" parent="GUI" instance=ExtResource( 15 )]
 visible = false
+
+[node name="victory" parent="GUI" instance=ExtResource( 10 )]
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]

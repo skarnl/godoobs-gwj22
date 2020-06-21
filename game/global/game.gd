@@ -8,6 +8,7 @@ signal game_paused
 signal game_resumed
 signal level_finished
 signal game_over
+signal victory
 
 
 enum GameState {
@@ -158,10 +159,9 @@ func goto_next_level():
 			_current_level_index = 3
 			SceneLoader.goto_scene('res://levels/level_03.tscn')
 			
-		# THIS NEEDS TO BE VICTORY - BUT OK
 		3: 
-			_current_level_index = 1
-			SceneLoader.goto_scene('res://levels/level_01.tscn')
+			get_tree().paused = true
+			emit_signal("victory")
 
 
 func get_current_level() -> int:
