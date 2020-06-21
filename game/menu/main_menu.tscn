@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://global/font/main.tres" type="DynamicFont" id=2]
@@ -7,6 +7,43 @@
 [ext_resource path="res://assets/images/ui/main/play-button.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/ui/main/credits-button.png" type="Texture" id=6]
 [ext_resource path="res://menu/credits.gd" type="Script" id=7]
+[ext_resource path="res://assets/images/menu_animation/background.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/menu_animation/cat_animation.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/menu_animation/conveyorbelt.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=2]
+resource_name = "conveyorbelt_running"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "cat_move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "show_text"
@@ -69,6 +106,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="background_animation" type="Node2D" parent="Panel"]
+
+[node name="background" type="Sprite" parent="Panel/background_animation"]
+texture = ExtResource( 8 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="conveyorbelt" type="Sprite" parent="Panel/background_animation"]
+texture = ExtResource( 10 )
+centered = false
+hframes = 16
+frame = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/background_animation/conveyorbelt"]
+autoplay = "conveyorbelt_running"
+playback_speed = 0.8
+anims/conveyorbelt_running = SubResource( 2 )
+
+[node name="cat" type="Sprite" parent="Panel/background_animation"]
+texture = ExtResource( 9 )
+centered = false
+hframes = 18
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/background_animation/cat"]
+autoplay = "cat_move"
+playback_speed = 0.6
+anims/cat_move = SubResource( 3 )
+
 [node name="start_button" type="Button" parent="Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -128,6 +196,7 @@ position = Vector2( 100.721, 210.747 )
 texture = ExtResource( 4 )
 
 [node name="credits" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )
