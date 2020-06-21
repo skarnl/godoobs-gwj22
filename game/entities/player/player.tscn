@@ -309,7 +309,7 @@ rotation = 2.35619
 [node name="Sprite (Body)" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 60
-frame = 53
+frame = 51
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle_down = SubResource( 1 )
@@ -350,7 +350,6 @@ shape = SubResource( 32 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-editor_draw_screen = false
 __meta__ = {
 "_editor_description_": "This needs to be a child of player, since we want to follow the player"
 }
