@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://global/font/main.tres" type="DynamicFont" id=2]
@@ -6,6 +6,58 @@
 [ext_resource path="res://assets/images/ui/main/ratvolution-logo.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/ui/main/play-button.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/ui/main/credits-button.png" type="Texture" id=6]
+[ext_resource path="res://menu/credits.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show_text"
+tracks/0/type = "value"
+tracks/0/path = NodePath("credits_text:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("credits_text2:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("credits_text:meta_underlined")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("credits_text2:meta_underlined")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -76,24 +128,46 @@ position = Vector2( 100.721, 210.747 )
 texture = ExtResource( 4 )
 
 [node name="credits" type="Panel" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="credits"]
+[node name="credits_text" type="RichTextLabel" parent="credits"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -119.0
-margin_top = -56.0
-margin_right = 119.0
-margin_bottom = 102.0
+margin_left = -218.0
+margin_top = -76.0
+margin_bottom = 121.0
+custom_fonts/bold_font = ExtResource( 2 )
 custom_fonts/normal_font = ExtResource( 2 )
-text = "Oskar 'Skar' van Velden - programming"
+visible_characters = 0
+percent_visible = 0.0
+meta_underlined = false
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices felis id diam lacinia, id dictum turpis molestie. Maecenas scelerisque felis ac dui sollicitudin, ut tristique risus aliquet."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits_text2" type="RichTextLabel" parent="credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 4.0
+margin_top = -76.0
+margin_right = 222.0
+margin_bottom = 121.0
+custom_fonts/bold_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
+visible_characters = 0
+percent_visible = 0.0
+meta_underlined = false
+text = " Duis posuere nibh at auctor pellentesque. Praesent sagittis ex non elit ornare, vitae pulvinar quam feugiat. Aliquam nec nibh semper, accumsan elit eu, vulputate eros. Cras venenatis ut lorem id ultricies. Quisque sed diam ut mauris fringilla facilisis."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,3 +199,7 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="credits"]
+playback_speed = 0.3
+anims/show_text = SubResource( 1 )

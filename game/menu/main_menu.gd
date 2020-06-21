@@ -19,7 +19,6 @@ func _ready():
 	$Panel/quit_button.connect("pressed", self, "_on_quit_button_pressed")
 	credits_close_button.connect("pressed", self, "_on_credits_close_button_pressed")
 	
-	credits.hide()
 	$Panel/start_button.grab_focus()
 
 
@@ -31,7 +30,7 @@ func _on_start_button_pressed():
 	
 
 func _on_credits_button_pressed():
-	credits.show()
+	credits.show_credits()
 	credits_close_button.grab_focus()
 	
 	
