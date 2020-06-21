@@ -24,7 +24,8 @@
             },
             {
                 "label": "accepted",
-                "text": "\"A revolution you say. I heard the com-rats were organizing something.\nI would gladly help. If only I had my trusty weapon. The cats took my toothpick you see.\""
+                "text": "\"A revolution you say. I heard the com-rats were organizing something.\nI would gladly help. If only I had my trusty weapon. The cats took my toothpick you see.\"",
+                "next_state": "active"
             }
         ],
         "active": [

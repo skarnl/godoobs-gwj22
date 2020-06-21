@@ -20,10 +20,10 @@
             },
 			{
                 "label": "ask_question",
-                "text": "\"I am very sorry com-rat. I know you must be busy.\nHowever, the only copy of the Com-rat Manifesto was taken by the cats.\nHow, can we ever build a rat-topia without its guidelines?\"",
+                "text": "\"I am very sorry com-rat. I know you must be busy.\nHowever, the only copy of the Com-rat Manifesto was taken by\nthe cats.How, can we ever build a rat-topia without its guidelines?\"",
                 "responses": [
                     {
-                        "text": "\"I will go look for it immediately - The history of all rat society is a struggle\nbetween the rat and the cat. - Right?\"",
+                        "text": "\"I will go look for it immediately\nThe history of all rat society is a struggle\nbetween the rat and the cat. - Right?\"",
                         "next_label": "accepted"
                     },
                     {
