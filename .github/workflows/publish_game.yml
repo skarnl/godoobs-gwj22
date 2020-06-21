@@ -7,8 +7,8 @@ on:
 #     platform: [windows, osx, html, linux]
 
 env:
-  PROJECT_NAME: godoobs-gwj22
-  ITCH_GAME: godot-wild-jam-22
+  PROJECT_NAME: ratvolution
+  ITCH_GAME: ratvolution
   ITCH_USER: godoobs
 
 jobs:
