@@ -20,7 +20,7 @@ enum GameState {
 # TODO we need to keep track of the global application state
 # so we can act depending on what state we are in (State Machine pattern)
 
-var _current_state: int = GameState.GAME setget _set_current_state
+var _current_state: int = GameState.SPLASH setget _set_current_state
 var _previous_state: int
 
 var QuestState = {
