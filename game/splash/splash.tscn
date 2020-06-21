@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/images/ui/splash/splash-spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://splash/splash.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/000webfont.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "splash_intro"
-length = 3.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -13,11 +14,63 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 1.4, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11 ]
+"values": [ 2, 3, 5, 6, 7, 8, 9, 10, 11, 11 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../presents:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.4, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../overlay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.4, 5.1, 5.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../background:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4, 1.7, 1.8, 1.9, 2, 2.1, 2.2 ),
+"transitions": PoolRealArray( 7913.03, 7913.03, 7913.03, 7913.03, 7913.03, 7913.03, 7913.03, 7913.03, 7913.03 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0, 0, 0, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0.054902, 0, 0.278431, 1 ), Color( 0, 0, 0, 1 ), Color( 0.054902, 0, 0.278431, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 3 )
 
 [node name="Splash" type="Control"]
 script = ExtResource( 2 )
@@ -27,39 +80,49 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="background" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 0.992025, 1 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
+visible = false
 position = Vector2( 232, 136 )
 scale = Vector2( 0.317308, 0.317308 )
 texture = ExtResource( 1 )
 hframes = 12
-frame = 11
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite"]
 anims/splash_intro = SubResource( 1 )
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
+[node name="presents" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -152.0
-margin_top = 57.0
-margin_right = 139.0
-margin_bottom = 101.0
-text = "A Stealth Revolution Game with Cats and Rats"
+margin_left = -145.5
+margin_top = 53.9991
+margin_right = 145.5
+margin_bottom = 97.9991
+custom_fonts/font = SubResource( 2 )
+text = "presents"
+align = 1
 valign = 1
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 6.0
-autostart = true
+[node name="overlay" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.989464, 1.00999 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
