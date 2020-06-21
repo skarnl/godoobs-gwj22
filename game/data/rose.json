@@ -1,69 +1,61 @@
 {
-    "title": "Quest for ROSE",
-    "follower_id": "ROSE",
+    "title": "Quest for Rose",
+	"follower_id": "ROSE",
     "dialogs": {
         "not_active": [
             {
                 "entry": true,
                 "label": "start",
-                "text": "\"No...no...no... They'll all starve... What can a simple rat dame do?\nWho would help her?\"",
+                "text": "\"Oh my! What do we have here? A true revolutionary.\nA revolutionary com-rat makes this dame very passionate...\nTell you what... You bring just one present and I will follow you anywhere...\"",
                 "responses": [
                     {
-                        "text": "\"You seem troubled. How can I help?\"",
+                        "text": "\"What does the pretty com-rat need?\"",
                         "next_label": "ask_question"
                     },
                     {
-                        "text": "Leave her to lament."                        
-                    }
-                ]
-            },
-            {
-                "label": "ask_question",
-                "text": "\"Oh, I'm sorry! Didn't notice you there!\nOh, it's my little dear rat pups. I had so many of em.\nNothing I could do about it. But the cats don't care.\nThey only give us the leftover crumbs. How can a mother choose which of her pups to feed?\"",
-                "responses": [
-                    {
-                        "text": "\"I will happily help out a struggling com-rat\"",
-                        "next_label": "accepted"
-                    },
-                    {
-                        "text": "\"I will find you some food, if you and your litter join the revolution.\"",
-                        "next_label": "accepted"
-                    },
-                    {
-                        "text": "\"The rat-sistance has no use for a starving litter!\"",
+                        "text": "\"I have no time for rat dames. I have a revolution to plan!\"",
                         "next_label": "rejected"
                     }
                 ]
             },
             {
                 "label": "rejected",
-                "text": "\"I understand. Times are hard on all of us rats.\""                
+                "text": "\"I understand my radiant riotous rat.\nYou know where to find me, love. \""                
             },
             {
-                "label": "accepted",
-                "text": "\"Thank you! You will save 78 future com-rats!\nWe will all happily join you in building the rat-topia!\nThere is a loaf of bread guarded by the cats somewhere near here...\"",
-                "next_state": "active"
+                "label": "ask_question",
+                "text": "\"Oh... Just a rose, one of a most crimson bloom.\nAs red as the flags of the revolution!\nAs red as the blood of the martyred rat workers!!!\nThis is what I desire from you...\"",
+				"responses": [
+                    {
+                        "text": "\"You shall have your bloodied rose!\"",
+                        "next_state": "active"
+                    },
+                    {
+                        "text": "\"Yeah, sorry... Not interested.\"",
+                        "next_label": "rejected"
+                    }
+                ]
             }
         ],
         "active": [
             {
                 "entry": true,
                 "label": "just_checking",
-                "text": "\"Have you found the bread yet?\nThe pups... they cry for it all the time...\"",
+                "text": "\"You have returned, my relished revolutionary...\nOh... tell me you have found the rose...\nThis longing leads me to lunacy!\"",
                 "responses": [
                     {
                         "conditional_item": "ROSE",
-                        "text": "\"Here you go! Hope this is enough for your litter.\"",
+                        "text": "\"Here you are. Blood red, just as you asked for...\"",
                         "next_label": "quest_finished"
                     },
                     {
-                        "text": "No. Still on it."                        
+                        "text": "\"Still working on it.\""                        
                     }
                 ]
             },
             {
                 "label": "quest_finished",
-                "text": "\"Thank you! Thank you!\nWe can clean and cook and garden and...\nWe'll better make our way to the resistance.\"",
+                "text": "\"Oh it is perfect!!! Would it look good behind my ear?\nYou think the look would work for the protests?\nI will follow you com-rat - for love and revolution!\"",
                 "next_state": "done"
             }
         ],
@@ -71,7 +63,7 @@
             {
                 "entry": true,
                 "label": "nothing_to_see",
-                "text": "\"Hi, I want to thank you for bringing me the bread. Me and my pups will help you however we can!\""                
+                "text": "\"What are we waiting for my most cherished com-rat?\nWe should march! An let the blooming banners of the revolution fly!\""                
             }
         ]
     }

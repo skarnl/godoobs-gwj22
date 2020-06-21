@@ -1,69 +1,51 @@
 {
-    "title": "Quest for TOOTHPICK",
-    "follower_id": "TOOTHPICK",
+    "title": "Quest for Toothpick",
+	"follower_id": "TOOTHPICK",
     "dialogs": {
         "not_active": [
             {
                 "entry": true,
                 "label": "start",
-                "text": "\"No...no...no... They'll all starve... What can a simple rat dame do?\nWho would help her?\"",
+                "text": "\"Capitan Ratsevich, a veteran of the Great Rat War, at your service!\nHmmm... say I haven't seen you around here. You are not a cat spy are you?\"",
                 "responses": [
                     {
-                        "text": "\"You seem troubled. How can I help?\"",
-                        "next_label": "ask_question"
-                    },
-                    {
-                        "text": "Leave her to lament."                        
-                    }
-                ]
-            },
-            {
-                "label": "ask_question",
-                "text": "\"Oh, I'm sorry! Didn't notice you there!\nOh, it's my little dear rat pups. I had so many of em.\nNothing I could do about it. But the cats don't care.\nThey only give us the leftover crumbs. How can a mother choose which of her pups to feed?\"",
-                "responses": [
-                    {
-                        "text": "\"I will happily help out a struggling com-rat\"",
+                        "text": "\"The revolution could use your military experience Capitan.\"",
                         "next_label": "accepted"
                     },
                     {
-                        "text": "\"I will find you some food, if you and your litter join the revolution.\"",
-                        "next_label": "accepted"
-                    },
-                    {
-                        "text": "\"The rat-sistance has no use for a starving litter!\"",
+                        "text": "\"No need for a washed up officer. Who knows where your loyalties lie...\"",
                         "next_label": "rejected"
                     }
                 ]
             },
             {
                 "label": "rejected",
-                "text": "\"I understand. Times are hard on all of us rats.\""                
+                "text": "\"I hope you reconsider com-rat.\nI have every reason to hate the cats.\nYou know in the Battle of Ratsburg...\""                
             },
             {
                 "label": "accepted",
-                "text": "\"Thank you! You will save 78 future com-rats!\nWe will all happily join you in building the rat-topia!\nThere is a loaf of bread guarded by the cats somewhere near here...\"",
-                "next_state": "active"
+                "text": "\"A revolution you say. I heard the com-rats were organizing something.\nI would gladly help. If only I had my trusty weapon. The cats took my toothpick you see.\""
             }
         ],
         "active": [
             {
                 "entry": true,
                 "label": "just_checking",
-                "text": "\"Have you found the bread yet?\nThe pups... they cry for it all the time...\"",
+                "text": "\"Have you found my toothpick?\nYou know I named it - Katya - thats how I call it.\"",
                 "responses": [
                     {
                         "conditional_item": "TOOTHPICK",
-                        "text": "\"Here you go! Hope this is enough for your litter.\"",
+                        "text": "\"I found a toothpick. Is that it?\"",
                         "next_label": "quest_finished"
                     },
                     {
-                        "text": "No. Still on it."                        
+                        "text": "\"Haven't found it yet.\""                        
                     }
                 ]
             },
             {
                 "label": "quest_finished",
-                "text": "\"Thank you! Thank you!\nWe can clean and cook and garden and...\nWe'll better make our way to the resistance.\"",
+                "text": "\"Thank you! My dear Katya...\nI will start drawing up battle plans immediately.\"",
                 "next_state": "done"
             }
         ],
@@ -71,7 +53,7 @@
             {
                 "entry": true,
                 "label": "nothing_to_see",
-                "text": "\"Hi, I want to thank you for bringing me the bread. Me and my pups will help you however we can!\""                
+                "text": "\"Hmm... We can set up an ambush right here...\nAnd maybe distract the main cat force while we do it.\""                
             }
         ]
     }
