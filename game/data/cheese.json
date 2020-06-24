@@ -31,14 +31,14 @@
                         "next_label": "ask_question_2"
                     },
                     {
-                        "text": "\"The revolution has more important concerns than cheese. /nFarewell!\"",
+                        "text": "\"The revolution has more important concerns than cheese.\nFarewell!\"",
                         "next_label": "rejected"
                     }
                 ]
             },
 			{
                 "label": "ask_question_2",
-                "text": "\"Soup? /nHow would you like a cheesy onion soup, \nor a tomato soup with some extra cheese?\"",
+                "text": "\"Soup?\nHow would you like a cheesy onion soup, \nor a tomato soup with some extra cheese?\"",
                 "responses": [
                     {
                         "text": "\"Mmm... Yes, where could i find some cheese?\"",
