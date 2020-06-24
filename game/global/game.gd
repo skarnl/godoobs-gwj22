@@ -177,6 +177,7 @@ func reset_game() -> void:
 	quest_states = {}
 	_current_level_index = 1
 	Progress.reset()
+	Inventory.reset()
 
 
 func start_game() -> void:

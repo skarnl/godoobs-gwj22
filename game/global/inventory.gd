@@ -7,14 +7,7 @@ var items = {}
 const ItemTypes = preload("res://global/ItemTypes.gd")
 
 func _ready():	
-	# initialize the items-dict with all the available types
-	for index in ItemTypes.types.values():
-		items[index] = { 
-			"id": index,
-			"name": str(ItemTypes.types.keys()[index]),
-			"picked_up": false,
-			"delivered": false
-		}
+	reset()
 
 
 func get_items() -> Dictionary:
@@ -69,3 +62,12 @@ func _get_item_index_by_name(name: String) -> int:
 
 func reset() -> void:
 	items = {}
+	
+	# initialize the items-dict with all the available types
+	for index in ItemTypes.types.values():
+		items[index] = { 
+			"id": index,
+			"name": str(ItemTypes.types.keys()[index]),
+			"picked_up": false,
+			"delivered": false
+		}
