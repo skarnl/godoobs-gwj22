@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://tilesets/walls.tres" type="TileSet" id=1]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/enemies/enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/items/Item.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/detected_alert.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/inventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/dialogue_panel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/villagers/notion_exclamation.tscn" type="PackedScene" id=14]
@@ -126,7 +127,7 @@ position = Vector2( 237.951, -1587.2 )
 
 [node name="bread_npc" parent="npcs" instance=ExtResource( 5 )]
 position = Vector2( 236.754, -1573.83 )
-rotation = -1.97808
+rotation = 0.523598
 quest_id = "bread"
 
 [node name="cheese_notion" parent="npcs" instance=ExtResource( 14 )]
@@ -134,7 +135,7 @@ position = Vector2( -388.011, -339.779 )
 
 [node name="cheese_npc" parent="npcs" instance=ExtResource( 5 )]
 position = Vector2( -389.598, -325.369 )
-rotation = -1.61422
+rotation = 0.261799
 quest_id = "cheese"
 frame_index = 2
 
@@ -143,7 +144,7 @@ position = Vector2( -1212.63, -1742.38 )
 
 [node name="vodka_npc" parent="npcs" instance=ExtResource( 5 )]
 position = Vector2( -1212.37, -1727.08 )
-rotation = 1.08315
+rotation = -1.309
 quest_id = "vodka"
 frame_index = 1
 
@@ -162,7 +163,7 @@ position = Vector2( 758.226, -571.743 )
 item_type = 1
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 60.0051, -1955.5 )
+position = Vector2( 60.0051, -2012.36 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 100
@@ -179,4 +180,6 @@ visible = false
 
 [node name="game_over" parent="GUI" instance=ExtResource( 15 )]
 visible = false
+
+[node name="detected_alert" parent="GUI" instance=ExtResource( 10 )]
 [connection signal="area_lost" from="player" to="." method="_on_player_area_lost"]
