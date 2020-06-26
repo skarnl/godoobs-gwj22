@@ -1,5 +1,7 @@
 extends Node
 
+signal level_loaded
+
 var current_scene = null
 
 func _ready():
@@ -17,3 +19,5 @@ func _deferred_goto_scene(path):
 	current_scene = s.instance()
 
 	get_tree().get_root().add_child(current_scene)
+
+	emit_signal("level_loaded")

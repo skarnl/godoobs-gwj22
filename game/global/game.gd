@@ -39,6 +39,7 @@ var is_current_level_finished = false
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
+	SceneLoader.connect("level_loaded", self, "_on_SceneLoader_level_loaded")
 
 
 
@@ -162,6 +163,15 @@ func goto_next_level():
 		3: 
 			get_tree().paused = true
 			emit_signal("victory")
+
+
+func _on_SceneLoader_level_loaded():
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.connect("player_detected", self, "_on_Enemy_player_detected")
+
+
+func _on_Enemy_player_detected():
+	pass
 
 
 func get_current_level() -> int:
